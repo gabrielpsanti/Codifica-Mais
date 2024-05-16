@@ -106,7 +106,9 @@
     padding: 1% 4%;
     background-color: white;   
     text-align: left;
-    color: rgb(31, 32, 68)
+    color: rgb(31, 32, 68);
+    flex-grow: 1;
+    flex-basis: 0;
 }
 
 .opcoes__titulo {
@@ -129,7 +131,7 @@ button {
 }
 
 .planos__enfase1 {
-    color: rgb(114, 199, 228);
+    color: rgb(0, 112, 209);
     font-weight: 900;
     font-size: 28px;
 }
