@@ -1,0 +1,36 @@
+1) São tags que possuem algum significado, diferente de tags "neutras", como div e span. Dão sentido pro conteúdo. Devemos utilizá-las para informar aos navegadores e motores de busca qual tipo de informação está sendo colocada dentro daquela tag, além de ajudar na acessibilidade. Exemplos: footer, header, main, section.
+
+
+2) São elementos que ocupam somente a largura ou o espaço necessário para exibir seu próprio conteúdo. Se colocarmos 2 elementos em linha (ou inline) em sequência, o segundo será disposto em seguida, na mesma linha. Caso este não caiba na mesma linha, será disposto na linha seguinte. Além disso, elementos em linha podem conter outros elementos em linha, afim de formatação ou aplicação de estilos. Exemplos: âncora (a), span <span>, negrito <strong>, itálico <em>.
+
+
+3) São elementos que ocupam toda a largura disponível do documento, mesmo que o conteúdo em si não ocupe toda aquela linha. Se colocarmos 2 elementos em bloco (ou block) em sequência, o segundo será disposto na linha seguinte, já que, assim como seu antecessor, este também ocupa toda a largura do documento. Exemplos: tags de cabeçalho <h1, ..., h6>, parágrafos <p>, divisões <div>.
+
+
+4) É um atributo que descreve/identifica o que a imagem inserida dentro da tag <img> representa. Além de dizer aos motores de busca sua representação, melhorando o SEO e a acessibilidade do site, o uso também facilita a construção e manutenção do documento.
+
+
+5) Um elemento pai passa para os elementos dentro dele (filhos) a estilização feita em CSS. Funciona sempre que o elemento filho não possui estilização própria. Exemplo: 
+HTML: 
+    <section class="teste">
+        <h1 class="teste__titulo">Lorem ipsum dolor sit amet.</h1>
+        <p class="teste__texto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, dicta!</p>
+    </section>
+
+CSS: // Como não possui estilização própria, o elemento teste__titulo receberá, por herança, a cor blue
+	.teste {
+		color: blue;
+	}
+	.teste__texto {
+		color: red;
+	} 
+
+
+6) BEM é uma metodologia de padronização utilizada para manter o documento simples e organizado. Divide as classes em três categorias: bloco, elemento e modificadores, o que facilita a construção e manutenção do projeto.
+
+
+7) Medidas absolutas são definidas a partir de medidas reais em tamanhos exatos (pixels, centímetros, etc.). Por outro lado, medidas relativas são baseadas em porcentagens que variam de acordo com outros aspectos (tamanho da fonte, altura, largura, etc.) de outro elemento (elemento pai).
+
+
+8) O Viewport é utilizado para adequar o documento ao tamanho de tela do dispositivo, com foco na responsividade. Como unidade de medida, podemos definir uma escala inicial (geralmente 1, imagino) de altura ou largura (viewport heigh ou widht) com base nas dimensões de tela do dispositivo.
+

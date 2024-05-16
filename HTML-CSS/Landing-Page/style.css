@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    background-color: rgb (246, 246, 249);
+}
+
+.superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    height: 10%;
+    background-color: rgb(31, 32, 68);
+    color: rgb(246, 246, 249);
+    padding: 5px 15%;
+    height: 10vh;
+}
+
+.superior__menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.menu__item {
+    padding-left: 30px;
+    text-decoration: none;
+    color: rgb(246, 246, 249);
+}
+
+.inicio {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    padding: 12px 0%;
+    background-color: rgb(246, 246, 249);
+    color: rgb(31, 32, 68);
+}
+
+.inicio__titulo {
+    padding: 5px;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.inicio__subtitulo {
+    padding: 5px;
+    padding-bottom: 12px;
+    font-weight: 450;
+}
+
+.inicio__imagem{
+    padding: 0px 15%;
+}
+
+.sobre {
+    text-align: center;
+    background-color: rgb(31, 32, 68);
+    color: rgb(246, 246, 249);
+    padding: 12px 15%;
+}
+
+.sobre__titulo {
+    padding-top: 5px;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.sobre__texto {
+    padding: 5px;
+    padding-bottom: 12px;
+    text-align: left;
+}
+
+.planos {
+    display: flex;
+    text-align: center;
+    padding: 12px 15%; 
+    justify-content: space-between;
+    gap: 2%;
+    background-color: rgb(246, 246, 249);
+    color: rgb(31, 32, 68);
+}
+
+.planos__titulo {
+    padding-top: 5px;
+    text-align: center;
+    background-color: rgb(246, 246, 249);
+    color: rgb(31, 32, 68);
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.planos__opcoes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid rgb(31, 32, 68);
+    border-radius: 15px;
+    padding: 1% 4%;
+    background-color: white;   
+    text-align: left;
+    color: rgb(31, 32, 68)
+}
+
+.opcoes__titulo {
+    font-weight: 500;
+    font-size: 24px;
+    text-align: center;
+}
+
+button {
+    background-color: rgb(0, 112, 209);
+    width: 95%;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 10.5px 0;
+    margin: 12px 0;
+    text-decoration: none;
+    color: white;
+    font-weight: 550;
+}
+
+.planos__enfase1 {
+    color: rgb(114, 199, 228);
+    font-weight: 900;
+    font-size: 28px;
+}
+
+.planos__enfase2 {
+    color: rgb(255, 153, 0);
+    font-weight: 900;
+    font-size: 28px;
+}
+
+.planos__enfase3 {
+    color: rgba(0, 128, 0, 0.884);
+    font-weight: 900;
+    font-size: 28px;
+}
+
+footer {
+    background-color: rgb(31, 32, 68);
+    color: rgb(246, 246, 249);
+    padding: 12px 15%;
+    text-align: center;
+    font-weight: 500;
+}
