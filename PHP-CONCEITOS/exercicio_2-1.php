@@ -1,6 +1,6 @@
 <?php
 
-echo "Digite um número: \n";
+echo "Digite um número:\n";
 $n1 = trim(fgets(STDIN));
 echo "Digite outro número: \n";
 $n2 = trim(fgets(STDIN));
