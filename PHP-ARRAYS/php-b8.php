@@ -4,6 +4,7 @@ $produto = 0;
 $valorProduto = 0;
 $valorTotal = 0;
 $maisCaro = 0;
+$arrayProduto = [];
 
 function valorPessoa($total, $pessoas)
 {
@@ -20,7 +21,12 @@ while ($produto != 'sair') {
     echo "Digite o nome do produto (digite 'sair' para encerrar): ";
     $produto = trim(fgets(STDIN));
     if ($produto == 'sair') {
-        echo "Listagem encerrada." . PHP_EOL;
+        if (count($arrayProduto) == 0) {
+            echo "Zero produtos, programa encerrado." . PHP_EOL;
+            exit;
+        } else {
+            echo "Listagem encerrada." . PHP_EOL;
+        }
     } else {
         $arrayProduto[] = $produto;
 
