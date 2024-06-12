@@ -2,24 +2,24 @@
 
 $estoque = [
     // ↓ ↓ descomentar abaixo caso queira realizar os testes
-    "PROD1" => [
-        'nome'=> 'Camisa',
-        'tamanho'=> 'M',
-        'cor'=> 'Azul',
-        'quantidade' => '10'
-    ],
-    "PROD2" => [
-        'nome'=> 'Tenis',
-        'tamanho'=> '40',
-        'cor'=> 'Preto',
-        'quantidade' => '5'
-    ],
-    "PROD3" => [
-        'nome'=> 'Bermuda',
-        'tamanho'=> '38',
-        'cor'=> 'Verde',
-        'quantidade' => '2'
-    ]
+    // "PROD1" => [
+    //     'nome'=> 'Camisa',
+    //     'tamanho'=> 'M',
+    //     'cor'=> 'Azul',
+    //     'quantidade' => '10'
+    // ],
+    // "PROD2" => [
+    //     'nome'=> 'Tenis',
+    //     'tamanho'=> '40',
+    //     'cor'=> 'Preto',
+    //     'quantidade' => '5'
+    // ],
+    // "PROD3" => [
+    //     'nome'=> 'Bermuda',
+    //     'tamanho'=> '38',
+    //     'cor'=> 'Verde',
+    //     'quantidade' => '2'
+    // ]
 ];
 
 // Função para adicionar produtos
