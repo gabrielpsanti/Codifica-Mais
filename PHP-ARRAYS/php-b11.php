@@ -84,7 +84,7 @@ function venderProduto(&$estoque, $codigo, $quantidade) {
     } else {
         // Se houver, verifica se a quantidade solicitada é válida
         if ($quantidade <= 0) {
-            echo "Entrada esperada: valor MAIOR ou IGUAL a ZERO. Operação encerrada.\n";
+            echo "Entrada esperada: valor MAIOR QUE ZERO. Operação encerrada.\n";
         } elseif ($quantidade > $estoque[$codigo]["quantidade"]) {
             echo "Quantidade solicitada maior do que a disponível em estoque. Operação encerrada. \n";
         } else {
