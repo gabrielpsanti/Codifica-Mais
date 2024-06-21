@@ -1,0 +1,119 @@
+.cartao {
+    width: 560px;
+    height: 260px;
+    display: grid;
+    grid-template: 1fr 0fr / 35% 65%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    justify-content: space-between;
+}
+
+.cartao__imagem img {
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.cartao__corpo {
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+}
+
+.corpo__titulo {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.corpo__tamanhos {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+
+.corpo__compras {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.compras__botoes {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.corpo__frete {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Fazendo graça nos botões */
+
+button {
+    cursor: pointer;
+    background-color: white;
+    color: #090913;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 6px;
+    border: 0;
+}
+
+button:hover {
+    -xpedu-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.tamanhos__opcoes {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.tamanhos__opcoes:hover {
+    background-color: #eeeded;
+}
+
+.tamanhos__opcoes:focus {
+    background-color: #090913;
+    color: white;
+}
+
+.botoes__comprar{
+    background-color: #090913;
+    color: white;
+    font-weight: normal;
+}
+
+.botoes__cart{
+    border: 1px solid #c2c2c2;
+}
+
+.compras__fav {
+    transition: color 1s;
+    color: gray;
+    border: 0px solid #c2c2c2;
+    font-size: 1.25em;
+}
+
+.compras__fav:focus {
+    background-color: white;
+    color: red;
+}
