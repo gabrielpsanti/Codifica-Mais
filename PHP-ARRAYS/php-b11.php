@@ -1,25 +1,76 @@
 <?php
 
 $estoque = [
-    // ↓ ↓ descomentar abaixo caso queira realizar os testes
-    // "PROD1" => [
-    //     'nome'=> 'Camisa',
-    //     'tamanho'=> 'M',
-    //     'cor'=> 'Azul',
-    //     'quantidade' => '10'
-    // ],
-    // "PROD2" => [
-    //     'nome'=> 'Tenis',
-    //     'tamanho'=> '40',
-    //     'cor'=> 'Preto',
-    //     'quantidade' => '5'
-    // ],
-    // "PROD3" => [
-    //     'nome'=> 'Bermuda',
-    //     'tamanho'=> '38',
-    //     'cor'=> 'Verde',
-    //     'quantidade' => '2'
-    // ]
+    [
+        'sku' => 'GRA-001',
+        'nome' => 'Arroz 5kg',
+        'unidade_medida' => '5kg',
+        'quantidade' => 50,
+        'preco' => 37.95
+        ],
+        [
+        'sku' => 'GRA-002',
+        'nome' => 'Feijão Preto 1kg',
+        'unidade_medida' => '1kg',
+        'quantidade' => 30,
+        'preco' => 8.99
+        ],
+        [
+        'sku' => 'MAS-003',
+        'nome' => 'Macarrão Espaguete 500g',
+        'unidade_medida' => '500g',
+        'quantidade' => 100,
+        'preco' => 9.99
+        ],
+        [
+        'sku' => 'MAN-004',
+        'nome' => 'Óleo de Soja 900ml',
+        'unidade_medida' => '900ml',
+        'quantidade' => 60,
+        'preco' => 6.98
+        ],
+        [
+        'sku' => 'GRA-005',
+        'nome' => 'Açúcar Refinado 1kg',
+        'unidade_medida' => '1kg',
+        'quantidade' => 80,
+        'preco' => 4.98
+        ],
+        [
+        'sku' => 'GRA-006',
+        'nome' => 'Sal Refinado 1kg',
+        'unidade_medida' => '1kg',
+        'quantidade' => 40,
+        'preco' => 4.5
+        ],
+        [
+        'sku' => 'GRA-007',
+        'nome' => 'Café Torrado e Moído 500g',
+        'unidade_medida' => '500g',
+        'quantidade' => 20,
+        'preco' => 16.98
+        ],
+        [
+        'sku' => 'BEB-008',
+        'nome' => 'Leite UHT Integral 1L',
+        'unidade_medida' => '1L',
+        'quantidade' => 70,
+        'preco' => 6.99
+        ],
+        [
+        'sku' => 'GRA-009',
+        'nome' => 'Farinha de Trigo 1kg',
+        'unidade_medida' => '1kg',
+        'quantidade' => 90,
+        'preco' => 5.45
+        ],
+        [
+        'sku' => 'PRO-010',
+        'nome' => 'Molho de Tomate',
+        'unidade_medida' => '340g',
+        'quantidade' => 50,
+        'preco' => 3.99
+        ]
 ];
 
 // Função para adicionar produtos
@@ -74,6 +125,14 @@ function verificarEstoque($estoque, $codigo)
     } else {
         echo "Produto encontrado. Estoque atual: " . $estoque[$codigo]['quantidade'] . PHP_EOL;
     }
+}
+
+// Função para atualizar estoque
+function adicionarEstoque (&$estoque, $sku, $quantidade) 
+{
+    $indice = array_search($sku, array_column($estoque, 'sku'));
+    $estoque[$indice]['quantidade'] += $quantidade;
+    echo "Estoque adicionado. Quantidade atual: " . $estoque[$indice]['quantidade'] . PHP_EOL;
 }
 
 // Função para relizar venda de produto
@@ -146,10 +205,14 @@ while (true) {
             verificarEstoque($estoque, $codigo);
             break;
         case 4:
+            echo "Atualizar Estoque";
+            adicionarEstoque($estoque, $sku, $quantidade);
+            break;
+        case 5:
             echo "Listar o Estoque\n";
             listarEstoque($estoque);
             break;
-        case 5:
+        case 6:
             echo "Saindo...\n";
             exit; // Sai do loop e encerra o script
         default:
