@@ -3,7 +3,7 @@ CREATE DATABASE gestao_produtos;
 USE gestao_produtos;
 
 CREATE TABLE produtos (
-	id INT,
+	id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR (100),
     sku VARCHAR (30),
     descricao VARCHAR (200),
