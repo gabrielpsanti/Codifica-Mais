@@ -14,9 +14,9 @@ INNER JOIN unidades_medida u
 ON p.unidade_medida_id = u.id
 WHERE c.id = 1 AND u.id = 3;
 
-SELECT fr.nome_fornecedor, SUM(p.quantidade_estoque) as total_estoque
+SELECT fr.nome_fornecedor, p.nome as produto, SUM(p.quantidade_estoque) as total_estoque
 FROM produtos p
 INNER JOIN fornecedores fr
 WHERE p.fornecedor_id = 5
-GROUP BY fr.nome_fornecedor
+GROUP BY fr.nome_fornecedor, p.nome
 HAVING fr.nome_fornecedor = 'Fornecedor E';
