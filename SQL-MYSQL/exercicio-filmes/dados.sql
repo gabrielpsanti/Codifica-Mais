@@ -2,6 +2,11 @@ USE codifica;
 
 INSERT INTO filmes (ano_de_lancamento, titulo_do_filme, titulo_original, classificacao, duracao, avaliacao, categorias)
 VALUES
+(2015, 'Divertida Mente', 'Inside Out', 'Livre', '95', '8.1', 'Animação, Aventura, Comédia'),
+('2024', 'Duna: Parte 2', 'Dune: Part Two', '14', '166', '8.6', 'Ação, Aventura, Drama');
+
+INSERT INTO filmes (ano_de_lancamento, titulo_do_filme, titulo_original, classificacao, duracao, avaliacao, categorias)
+VALUES
 (2001,'O Senhor dos Anéis: A Sociedade do Anel','The Lord of the Rings: The Fellowship of the Ring','12',178,8.8,'Aventura, Fantasia'),
 (1972,'O Poderoso Chefão','The Godfather','16',175,9.2,'Crime, Drama'),
 (2014,'Interestelar','Interstellar','10',169,8.6,'Aventura, Drama, Sci-Fi'),
