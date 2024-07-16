@@ -38,4 +38,10 @@ ORDER BY classificacao;
 USE codifica;
 
 SELECT sum(x.duracao) AS duracao_total
-FROM(SELECT duracao, count(id_filme) AS auxiliar FROM filmes GROUP BY duracao ORDER BY duracao DESC LIMIT 3) x GROUP BY x.auxiliar;
+FROM(
+    SELECT duracao, COUNT(id_filme) AS auxiliar 
+    FROM filmes 
+    GROUP BY duracao 
+    ORDER BY duracao DESC LIMIT 3
+    ) x 
+GROUP BY x.auxiliar;
