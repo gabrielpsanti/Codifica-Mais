@@ -1,10 +1,12 @@
 USE codifica;
 
+SELECT * FROM FILMES;
+
 SELECT titulo_original, avaliacao 
 FROM filmes 
 ORDER BY avaliacao DESC;
 
-SELECT titulo_do_filme, duracao 
+SELECT *
 FROM filmes 
 ORDER BY duracao DESC LIMIT 1;
 
@@ -13,11 +15,11 @@ FROM filmes
 WHERE classificacao <= 16 
 ORDER BY duracao LIMIT 3;
 
-SELECT titulo_do_filme, ano_de_lancamento, avaliacao 
+SELECT *
 FROM filmes 
 ORDER BY ano_de_lancamento, avaliacao DESC;
 
-SELECT titulo_do_filme, categorias 
+SELECT *
 FROM filmes 
 WHERE categorias LIKE '%Drama%';
 
