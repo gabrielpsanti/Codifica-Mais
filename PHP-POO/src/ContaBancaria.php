@@ -6,17 +6,17 @@ class ContaBancaria
     private string $cpf;
     private string $numeroConta; // String pra receber o número formatado
     private float $saldo;
-    private static array $numerosIndisponiveis = []; // Guarda contas já utilizadas
-    private static array $contas = []; // Cópia das contas geradas na run
+    private static array $numerosIndisponiveis = []; // Guarda os nº das contas já criadas
+    private static array $contas = []; // Cópia das objetos geradas na run
 
     public function __construct($nome, $cpf)
     {
         $this->nome = $nome;
         $this->cpf = $cpf;
-        $this->numeroConta = self::gerarNumeroConta(); //Gerar n de conta aleatório
+        $this->numeroConta = self::gerarNumeroConta(); //Gera nº de conta aleatório
         $this->saldo = 0;
 
-        // Passar tudo para o array cópia para poder listar depois
+        // Passa tudo para o array cópia para poder listar depois
         self::$contas[] = [
             'nome' => $this->nome,
             'cpf' => $this->cpf,
@@ -96,15 +96,15 @@ class ContaBancaria
         return;
     }
 
-    // Daria pra ter feito incrementando, mas queria testar o comportamento com números aleatórios
+    // Queria testar o comportamento com números aleatórios
     private static function gerarNumeroConta() :string
     {
         // Gera números aleatórios de Conta e Dígito e verifica se já existe
         do {
             $numConta = rand(1, 9999);
-            $digConta = rand(1, 9);
+            $digConta = rand(0, 9);
 
-            // Formatar número conta para ter sempre 5 dígitos (preenchidos com 0 à esquerda) e número verificador
+            // Formata número conta para ter sempre 5 dígitos (preenchidos com 0 à esquerda) e número verificador
             $numContaFormatado = str_pad($numConta, 5, '0', STR_PAD_LEFT) . "-$digConta";
 
             // Daqui pra baixo pode ser considerado apenas como log, mas imprimindo pra ver a reação do código

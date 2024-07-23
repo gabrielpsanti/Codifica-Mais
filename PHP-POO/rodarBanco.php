@@ -26,9 +26,7 @@ $conta4->sacar(gerarFloatsAleatorios());
 
 // Verificar saldo
 $conta1->verificarSaldo();
-$conta2->verificarSaldo();
-$conta3->verificarSaldo();
 $conta4->verificarSaldo();
 
-// Função extra que lista todas as contas
+// Função extra que lista todas as contas pela cópia dos objetos passados pra um array no arquivo externo 
 ContaBancaria::listarTodasAsContas();
