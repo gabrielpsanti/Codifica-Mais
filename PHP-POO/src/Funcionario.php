@@ -6,7 +6,7 @@ class Funcionario
     private string $cargo;
     private float $salario;
 
-    public function __CONSTRUCT($nome, $cargo, $salario)
+    public function __construct(string $nome, string $cargo, float $salario)
     {
         $this->nome = $nome;
         $this->cargo = $cargo;

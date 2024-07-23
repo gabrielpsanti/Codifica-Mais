@@ -6,7 +6,7 @@ class Produto
     private float $preco;
     private int $estoque;
 
-    public function __CONSTRUCT(string $nome, float $preco, int $estoque)
+    public function __construct(string $nome, float $preco, int $estoque)
     {
         $this->nome = $nome;
         $this->preco = $preco;

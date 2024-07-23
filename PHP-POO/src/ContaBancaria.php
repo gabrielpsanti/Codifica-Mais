@@ -9,7 +9,7 @@ class ContaBancaria
     private static array $numerosIndisponiveis = []; // Guarda os nº das contas já criadas
     private static array $contas = []; // Cópia das objetos geradas na run
 
-    public function __construct($nome, $cpf)
+    public function __construct(string $nome, string $cpf)
     {
         $this->nome = $nome;
         $this->cpf = $cpf;
