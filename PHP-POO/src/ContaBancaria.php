@@ -64,7 +64,7 @@ class ContaBancaria
 
         // Verifica saldo disponível
         if ($valor > $this->saldo){
-            echo "Saldo insuficiente. Operação encerrada\n";
+            echo "Saldo solicitado: R$ " . number_format($valor, 2, ',', '.') . ". Saldo atual: R$ " . number_format($this->saldo, 2, ',', '.') . ". Operação encerrada\n";
             echo "------------------------------------------------\n";
             return;
         }
@@ -110,10 +110,10 @@ class ContaBancaria
             // Daqui pra baixo pode ser considerado apenas como log, mas imprimindo pra ver a reação do código
             echo "Verificando disponibilidade de conta nº $numContaFormatado\n";
             echo "------------------------------------------------\n";
-            // Primeira verificação dentro da função do while
+            // Primeira verificação dentro da função do while apenas para gerar o primeiro log
             if (in_array($numContaFormatado, self::$numerosIndisponiveis)){
                 // Se quise testar a verificação funcionando altere $numConta e $digConta pra rand(1, 2)
-                echo "Conta nº $numContaFormatado indisponível. Recalculando\n";
+                echo "Conta nº $numContaFormatado indisponível. Recalculando...\n";
                 echo "------------------------------------------------\n";
             }
         } while (in_array($numContaFormatado, self::$numerosIndisponiveis)); // Verificação em loop
