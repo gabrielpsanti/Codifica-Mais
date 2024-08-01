@@ -1,33 +1,27 @@
 <?php
 
-namespace Codifica\Veiculos\Model;
+namespace Codifica\Automoveis\Model;
 
-abstract class Veiculo
+use Codifica\Automoveis\Model\VeiculoInterface;
+
+abstract class Veiculo implements VeiculoInterface
 {
-    protected string $nome;
-    protected int $anoFabricacao;
-    protected string $cor;
+    public $modelo;
+    public $cor;
+    public $diferencial;
+    const ANO_FABRICACAO = 2024;
+    const FABRICANTE = 'Codifica Motors';
 
-    public function __construct(string $nome, int $anoFabricacao, string $cor)
-    {
-        $this->nome = $nome;
-        $this->anoFabricacao = $anoFabricacao;
+    public function __construct($modelo, $cor, $diferencial) {
+        $this->modelo = $modelo;
         $this->cor = $cor;
+        $this->diferencial = $diferencial;
     }
 
-    public function getNome(): string
-    {
-        return $this->nome;
+    public function calcularPreco() {
+        return $this->modelo['preco'] + $this->cor['preco'] + $this->diferencial['preco'];
     }
 
-    public function getAnoFabricacao(): string
-    {
-        return $this->anoFabricacao;
-    }
-
-    public function getVeiculo(): string
-    {
-        return "Modelo: {$this->nome} | Ano: {$this->anoFabricacao} | Cor: {$this->cor}";
-    }
-
+    abstract public function ligaVeiculo(): void;
+    abstract public function desligaVeiculo(): void;
 }
