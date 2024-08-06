@@ -1,5 +1,7 @@
 <?php
 
+namespace Codifica\Estoque\Service;
+
 class ValidaNumerosPositivos
 {
     public function validarNumeros(float $numero): float
@@ -8,7 +10,8 @@ class ValidaNumerosPositivos
             return $numero;
         }
 
+        echo "---------------------------------------------------\n";
         $numero = readline("Número inválido. Digite um número maior que zero: ");
-        return $numero;
+        return $this->validarNumeros($numero);
     }
 }
