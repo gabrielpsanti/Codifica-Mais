@@ -2,6 +2,8 @@
 
 namespace Codifica\Estoque;
 
+use Codifica\Estoque\Estoque;
+
 use Codifica\Estoque\Model\Types\{JogoDigital, JogoFisico, LivroDigital, LivroFisico};
 
 class MenuInterativo
