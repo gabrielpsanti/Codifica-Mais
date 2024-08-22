@@ -1,20 +1,36 @@
-
+html {
+    background-color: #171D25;
+    color: #D2D2D2;
+    font-family: "Motiva Sans", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
 
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100%;
-    border: 0px black;
     margin: 0px;
-    background-color: #171D25;
-    color: #D2D2D2;
-    font-family: "Motiva Sans", Arial, Helvetica, sans-serif;
 }
 
 p {
     margin: 5px;
+}
+
+button {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+input {
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .container {
@@ -22,21 +38,106 @@ p {
     padding: 1vh;
     border-radius: 10px;
     background-color: #1b2838;
+    width: 450px;
 }
 
+.header.cadastro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cadastro-title {
+    margin: 5px 5px 5px 5px;
+    text-align: left;
+    display: flex;
+    font-weight: 400;
+}
+
+
+.container-form {
+    border: 1px solid black;
+    padding: 1vh;
+    margin: 1vh;
+    border-radius: 0px 8px 8px 0px;
+    background-color: #171D25;
+    width: 100%;
+    display: flex;
+    height: 57%;
+}
+
+.container-form div {
+    margin: 0px 5px 0px 5px;
+    color: #D2D2D2;
+}
+
+.container-form input, select {
+    border: 0px;
+    background-color: #324965;
+    height: 30px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #F2F2F2;
+    font-size: 20px;
+    padding: 2px;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.container-form select {
+    height: 36px;
+    margin-bottom: 0px;
+}
+
+.container-form button {
+    background-color: #5ba32b;
+    color: #FFFFFF;
+    font-size: 20px;
+    border: none;
+    border-radius: 7px;
+    padding: 12px 18px;
+}
+
+.container-halfs {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0px !important;
+}
+
+.cadastro-categoria {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.half {
+    width: 48%;
+    margin: 0px !important;
+}
+
+.cadastro-name {
+    margin-top: 5px !important;
+}
 .header {
     display: flex;
     margin: 1vh;
     color: #FFFFFF;
     align-items: flex-end;
+    justify-content: space-between;
+    height: 50px;
 }
 
 .container-items {
     overflow: scroll;
     overflow-x: hidden;
-    height: 50vh;
+    height: 500px;
+    width: 100%;
 }
 
+.formulario {
+    height: 500px;
+    width: 100%;
+    display: flex;
+}
 
 /* Código da scrollbar copiado do site que usei de modelo, funcionou de boa. */
 .container-items::-webkit-scrollbar {
@@ -63,11 +164,16 @@ p {
     min-width: 32px;
 }
 
+.required:after {
+    content:" *"; 
+    color: red;
+  }
+
 .item {
     margin: 1vh;
     padding: 1vh;
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 0px 5px 5px 0px;
     background-color: #171D25;
 }
 
@@ -83,8 +189,9 @@ p {
 
 .identificadores p {
     color: #979797;
-    font-size: 17px;
+    font-size: 19px;
     font-weight: 500;
+    font-style: italic;
 }
 
 .item-body {
@@ -103,11 +210,10 @@ p {
     border: none;
     border-radius: 7px;
     padding: 12px 18px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;  
-
+    font-size: 20px;
+    height: 25px;
 }
+
 
 .search-bar {
     display: flex;
@@ -128,6 +234,7 @@ p {
     border: 0px;
     background-color: #324965;
     color: #FFFFFF;
+    height: 22px;
 }
 
 
@@ -149,10 +256,11 @@ p {
     display: flex;
     padding: 5px;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: 15px;
     text-transform: uppercase;
     align-items: center;
     color: #FFFFFF;
+    font-weight: 400;
 }
 
 .tag.vestuario {
@@ -173,10 +281,10 @@ p {
     color: #FFFFFF;
     background-color: #9e2323;
     border-radius: 5px;
-    font-size: 15px;
+    font-size: 18px;
     padding-top: 3px;
     padding-bottom: 4px;
-
+    
 }
 
 .edit-btn {
@@ -185,7 +293,7 @@ p {
     color: #FFFFFF;
     background-color: #324965;
     border-radius: 5px;
-    font-size: 15px;
+    font-size: 18px;
     padding-top: 3px;
     padding-bottom: 4px;
 }
