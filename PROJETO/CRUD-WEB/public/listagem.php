@@ -1,188 +1,204 @@
-<?php
-session_start();
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listagem de produtos</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            border: 0.1px solid black;
-            margin: 10px 50px 10px 50px;
-        }
-
-        button {
-            border-radius: 3px;
-            margin: 5px;
-        }
-
-        .superior {
-            display: flex;
-            justify-content: space-between;
-            margin: 10px 5px 5px 5px;
-            border: 0.1px solid black;
-            align-items: center;
-        }
-
-        .superior__botao {
-            display: flex;
-        }
-
-        .superior__pesquisa {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .lista {
-            display: flex;
-            flex-direction: column;
-            margin: 5px;
-            border: 0.1px solid black;
-        }
-
-
-        .lista__produto {
-            display: flex;
-            justify-content: space-between;
-            border: 0px;
-            margin: 5px;
-        }
-
-        .produto__esquerda {
-            border: 0px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .esquerda__identificadores {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-        }
-
-        .produto__direita {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .direita__deletar {
-            display: flex;
-            justify-content: flex-end;
-            width: 100%;
-        }
-
-        .direita__deletar > button {
-            background-color: #f00;
-        }
-
-
-
-    </style>
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- <?php foreach ($_SESSION['produtos'] as $produto): ?>
-    <pre><?= var_dump($produto) ?></pre>
-    <?php endforeach; ?> -->
-
-
-    <div class="superior">
-        <button class="superior__botao">
-            Novo Item
-        </button>
-        <form class="superior__pesquisa">
-            <h1 class="pesquisa__titulo">Buscar item</h1>
-            <input class="pesquisa__input" type="text" placeholder="Digite o nome do produto">
-        </form>
-    </div>
-
-    <div class="lista">
-        <div class="lista__produto">
-            <div class="produto__esquerda">
-                <div class="esquerda__identificadores">
-                    <div class="identificadores__id">
-                        #0001
+    <div class="container">
+        <div class="header">
+            <div class="new-item">
+                <button class="new-item-btn">
+                    <i class="fa-solid fa-plus"></i>
+                    &nbspNovo item
+                </button>
+            </div>
+            
+            <div class="search-bar">
+                <label for="search">&nbspBuscar item</label>
+                <div class="search-body">
+                    <input class="search-input" type="search" name="search">
+                    <button class= "search-btn" name="search-btn" aria-label="Buscar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+            </div>
+                
+        </div>
+        <div class="container-items">
+            <div class="item">
+                <div class="item-body">
+                    <div class="item-left">
+                        <div class="identificadores">
+                            <p class="sku">#000001</p>
+                            <span class="tag eletronico">eletrônico</span>
+                        </div> 
+                        <p class="item-name">Notebook</p>
                     </div>
-                    <div class="identificadores__categoria">
-                        Vestuário
+                    <div class="item-right">
+                        <p>SKU: 123456</p>
+                        <p>Quantidade: 45</p>
                     </div>
                 </div>
-                <div class="esquerda__nome">
-                    Camisa codifica+
-                </div>
-                <div>
-                    <button class="esquerda__editar">
-                        Editar
+                
+                <div class="container-btns">
+                    <button class="edit-btn">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        &nbspEditar
+                    </button>
+                    <button class="delete-btn">
+                        Deletar&nbsp
+                        <i class="fa-solid fa-trash"></i>
                     </button>
                 </div>
                 
             </div>
-            <div class="produto__direita">
-                <div class="direita__identificadores">
-                    <div class="identificadores__sku">
-                        SKU: KAS123912
+
+            <div class="item">
+                <div class="item-body">
+                    <div class="item-left">
+                        <div class="identificadores">
+                            <p>#000002</p>
+                            <span class="tag vestuario">vestuário</span>
+                        </div> 
+                        <p class="item-name">Notebook</p>
+                    </div>
+                    <div class="item-right">
+                        <p>SKU: 123456</p>
+                        <p>Quantidade: 45</p>
                     </div>
                 </div>
-                <div class="direita__quantidade">
-                    Quantidade: 50
-                </div>
-                <div class="direita__deletar">
-                    <button>
-                        Deletar
+                
+                <div class="container-btns">
+                    <button class="edit-btn">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        &nbspEditar
                     </button>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-    <div class="lista">
-        <div class="lista__produto">
-            <div class="produto__esquerda">
-                <div class="esquerda__identificadores">
-                    <div class="identificadores__id">
-                        #0001
-                    </div>
-                    <div class="identificadores__categoria">
-                        Vestuário
-                    </div>
-                </div>
-                <div class="esquerda__nome">
-                    Camisa codifica+
-                </div>
-                <div>
-                    <button class="esquerda__editar">
-                        Editar
+                    <button class="delete-btn">
+                        Deletar&nbsp
+                        <i class="fa-solid fa-trash"></i>
                     </button>
                 </div>
                 
             </div>
-            <div class="produto__direita">
-                <div class="direita__identificadores">
-                    <div class="identificadores__sku">
-                        SKU: KAS123912
+
+            <div class="item">
+                <div class="item-body">
+                    <div class="item-left">
+                        <div class="identificadores">
+                            <p>#000003</p>
+                            <span class="tag escritorio">escritório</span>
+                        </div> 
+                        <p class="item-name">Notebook</p>
+                    </div>
+                    <div class="item-right">
+                        <p>SKU: 123456</p>
+                        <p>Quantidade: 45</p>
                     </div>
                 </div>
-                <div class="direita__quantidade">
-                    Quantidade: 50
-                </div>
-                <div class="direita__deletar">
-                    <button>
-                        Deletar
+                
+                <div class="container-btns">
+                    <button class="edit-btn">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        &nbspEditar
+                    </button>
+                    <button class="delete-btn">
+                        Deletar&nbsp
+                        <i class="fa-solid fa-trash"></i>
                     </button>
                 </div>
+                
             </div>
-        </div>
-        
-    </div>
 
+            <div class="item">
+                <div class="item-body">
+                    <div class="item-left">
+                        <div class="identificadores">
+                            <p>#000004</p>
+                            <span class="tag eletronico">eletrônico</span>
+                        </div> 
+                        <p class="item-name">Notebook</p>
+                    </div>
+                    <div class="item-right">
+                        <p>SKU: 123456</p>
+                        <p>Quantidade: 45</p>
+                    </div>
+                </div>
+                
+                <div class="container-btns">
+                    <button class="edit-btn">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        &nbspEditar
+                    </button>
+                    <button class="delete-btn">
+                        Deletar&nbsp
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+                
+            </div>
+
+            <div class="item">
+                <div class="item-body">
+                    <div class="item-left">
+                        <div class="identificadores">
+                            <p>#000005</p>
+                            <span class="tag vestuario">vestuário</span>
+                        </div> 
+                        <p class="item-name">Notebook</p>
+                    </div>
+                    <div class="item-right">
+                        <p>SKU: 123456</p>
+                        <p>Quantidade: 45</p>
+                    </div>
+                </div>
+                
+                <div class="container-btns">
+                    <button class="edit-btn">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        &nbspEditar
+                    </button>
+                    <button class="delete-btn">
+                        Deletar&nbsp
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+                
+            </div>
+
+            <div class="item">
+                <div class="item-body">
+                    <div class="item-left">
+                        <div class="identificadores">
+                            <p>#000006</p>
+                            <span class="tag escritorio">escritório</span>
+                        </div> 
+                        <p class="item-name">Notebook</p>
+                    </div>
+                    <div class="item-right">
+                        <p>SKU: 123456</p>
+                        <p>Quantidade: 45</p>
+                    </div>
+                </div>
+                
+                <div class="container-btns">
+                    <button class="edit-btn">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        &nbspEditar
+                    </button>
+                    <button class="delete-btn">
+                        Deletar&nbsp
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+    
 </body>
 </html>

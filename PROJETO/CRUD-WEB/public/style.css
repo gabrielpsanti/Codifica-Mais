@@ -1,0 +1,191 @@
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    border: 0px black;
+    margin: 0px;
+    background-color: #171D25;
+    color: #D2D2D2;
+    font-family: "Motiva Sans", Arial, Helvetica, sans-serif;
+}
+
+p {
+    margin: 5px;
+}
+
+.container {
+    border: 1px solid black;
+    padding: 1vh;
+    border-radius: 10px;
+    background-color: #1b2838;
+}
+
+.header {
+    display: flex;
+    margin: 1vh;
+    color: #FFFFFF;
+    align-items: flex-end;
+}
+
+.container-items {
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 50vh;
+}
+
+
+/* Código da scrollbar copiado do site que usei de modelo, funcionou de boa. */
+.container-items::-webkit-scrollbar {
+    height: 12px;
+    width: 14px;
+    background: transparent;
+    overflow: visible;
+}
+
+.container-items::-webkit-scrollbar-corner {
+    background: #202020;
+}
+
+.container-items::-webkit-scrollbar-thumb {
+    width: 10px;
+    background-color: #434953;
+    border-radius: 10px;
+    z-index: 12;
+    border: 4px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    transition: background-color .32s ease-in-out;
+    margin: 4px;
+    min-height: 32px;
+    min-width: 32px;
+}
+
+.item {
+    margin: 1vh;
+    padding: 1vh;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #171D25;
+}
+
+.item-name {
+    margin: 0px 5px 5px 5px;
+}
+
+.identificadores {
+    display: flex;
+    align-items: center;
+    
+}
+
+.identificadores p {
+    color: #979797;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.item-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.new-item {
+    display: flex;
+    align-items: flex-end;
+}
+
+.new-item-btn {
+    background-color: #5ba32b;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 7px;
+    padding: 12px 18px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;  
+
+}
+
+.search-bar {
+    display: flex;
+    flex-direction: column;
+    padding-left: 7vh;
+}
+
+.search-body {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 0px 10px 10px 0px;
+    border: 1px solid black;
+    
+}
+
+.search-input {
+    border: 0px;
+    background-color: #324965;
+    color: #FFFFFF;
+}
+
+
+.search-btn {
+    cursor: pointer;
+    border: 1px;
+    border-radius: 0px 10px 10px 0px;
+    color: #FFFFFF;
+    background-color: transparent;
+}
+
+.container-btns {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 5px 0px 5px;
+}
+
+.tag {
+    display: flex;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    text-transform: uppercase;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.tag.vestuario {
+    background-color: #414414;
+}
+
+.tag.eletronico {
+    background-color: #3b265e;
+}
+
+.tag.escritorio {
+    background-color: #405240;
+}
+
+.delete-btn {
+    cursor: pointer;
+    border: 1px;
+    color: #FFFFFF;
+    background-color: #9e2323;
+    border-radius: 5px;
+    font-size: 15px;
+    padding-top: 3px;
+    padding-bottom: 4px;
+
+}
+
+.edit-btn {
+    cursor: pointer;
+    border: 1px;
+    color: #FFFFFF;
+    background-color: #324965;
+    border-radius: 5px;
+    font-size: 15px;
+    padding-top: 3px;
+    padding-bottom: 4px;
+}
