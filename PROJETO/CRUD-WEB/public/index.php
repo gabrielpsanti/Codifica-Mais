@@ -2,6 +2,8 @@
     // Inicia a sessão
     session_start();
 
+    require __DIR__ . '/../vendor/autoload.php';
+
     // Define o array de categorias, unidades de medida e produtos
     $_SESSION['categorias'] = [
         '1' => 'Eletrônicos',
@@ -40,7 +42,46 @@
             'quantidade' => 5,
             'categoria_id' => '2',
         ],
+        [
+            'id' => 2,
+            'nome' => 'Geladeira',
+            'sku' => '123457',
+            'unidade_medida_id' => '2',
+            'valor' => 2500.00,
+            'quantidade' => 5,
+            'categoria_id' => '3',
+        ],
+        [
+            'id' => 2,
+            'nome' => 'Geladeira',
+            'sku' => '123457',
+            'unidade_medida_id' => '2',
+            'valor' => 2500.00,
+            'quantidade' => 4,
+            'categoria_id' => '4',
+        ],
+        [
+            'id' => 2,
+            'nome' => 'Geladeira',
+            'sku' => '123457',
+            'unidade_medida_id' => '2',
+            'valor' => 2500.00,
+            'quantidade' => 5,
+            'categoria_id' => '5',
+        ],
+        [
+            'id' => 2,
+            'nome' => 'Geladeira',
+            'sku' => '123457',
+            'unidade_medida_id' => '2',
+            'valor' => 2500.00,
+            'quantidade' => 5,
+            'categoria_id' => '7',
+        ],
     ];
 
+    use App\Produtos;
+    $rotasProdutos = new Produtos();
+    $rotasProdutos->listar();
     // Redireciona para a página de listagem
     header('Location: listagem.php');

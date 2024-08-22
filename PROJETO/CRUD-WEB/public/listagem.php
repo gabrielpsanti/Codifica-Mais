@@ -1,3 +1,16 @@
+<?php
+
+// namespace Public;
+
+// use App\Produtos;
+
+// $rotasProdutos = new Produtos();
+// var_dump($rotasProdutos->listar());
+// exit();
+
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,7 +24,7 @@
     <div class="container">
         <div class="header">
             <div class="new-item">
-                <a href="formulario.php" class="new-item-btn">
+                <a href="formulario-cadastro.php" class="new-item-btn">
                     <i class="fa-solid fa-plus"></i>
                     &nbspNovo item
                 </a>
@@ -29,173 +42,35 @@
                 
         </div>
         <div class="container-items">
+            <?php foreach ($_SESSION['produtos'] as $produto):?>
             <div class="item">
                 <div class="item-body">
                     <div class="item-left">
                         <div class="identificadores">
-                            <p class="sku">#000001&nbsp</p>
-                            <span class="tag eletronico">eletrônico</span>
+                            <p class="id">#00000<?= $produto['id']?>&nbsp</p>
+                            <span class="tag-<?= $produto['categoria_id']?>"><?= $_SESSION['categorias'][$produto['categoria_id']]?></span>
                         </div> 
-                        <p class="item-name">Notebook</p>
+                        <p class="item-name"><?= $produto['nome']?></p>
                     </div>
                     <div class="item-right">
-                        <p>SKU: 123456</p>
-                        <p>Quantidade: 45</p>
+                        <p>SKU: <?= $produto['sku']?></p>
+                        <p>Quantidade: <?= $produto['quantidade']?></p>
                     </div>
                 </div>
                 
                 <div class="container-btns">
-                    <button class="edit-btn">
+                    <a href="formulario-edit.php" class="edit-btn">
                         <i class="fa-solid fa-pen-to-square"></i>
                         &nbspEditar
-                    </button>
+                    </a>
                     <button class="delete-btn">
                         Deletar&nbsp
                         <i class="fa-solid fa-trash"></i>
                     </button>
                 </div>
-                
             </div>
-
-            <div class="item">
-                <div class="item-body">
-                    <div class="item-left">
-                        <div class="identificadores">
-                            <p>#000002&nbsp</p>
-                            <span class="tag vestuario">vestuário</span>
-                        </div> 
-                        <p class="item-name">Notebook</p>
-                    </div>
-                    <div class="item-right">
-                        <p>SKU: 123456</p>
-                        <p>Quantidade: 45</p>
-                    </div>
-                </div>
-                
-                <div class="container-btns">
-                    <button class="edit-btn">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                        &nbspEditar
-                    </button>
-                    <button class="delete-btn">
-                        Deletar&nbsp
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </div>
-                
-            </div>
-
-            <div class="item">
-                <div class="item-body">
-                    <div class="item-left">
-                        <div class="identificadores">
-                            <p>#000003&nbsp</p>
-                            <span class="tag escritorio">escritório</span>
-                        </div> 
-                        <p class="item-name">Notebook</p>
-                    </div>
-                    <div class="item-right">
-                        <p>SKU: 123456</p>
-                        <p>Quantidade: 45</p>
-                    </div>
-                </div>
-                
-                <div class="container-btns">
-                    <button class="edit-btn">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                        &nbspEditar
-                    </button>
-                    <button class="delete-btn">
-                        Deletar&nbsp
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </div>
-                
-            </div>
-
-            <div class="item">
-                <div class="item-body">
-                    <div class="item-left">
-                        <div class="identificadores">
-                            <p>#000004&nbsp</p>
-                            <span class="tag eletronico">eletrônico</span>
-                        </div> 
-                        <p class="item-name">Notebook</p>
-                    </div>
-                    <div class="item-right">
-                        <p>SKU: 123456</p>
-                        <p>Quantidade: 45</p>
-                    </div>
-                </div>
-                
-                <div class="container-btns">
-                    <button class="edit-btn">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                        &nbspEditar
-                    </button>
-                    <button class="delete-btn">
-                        Deletar&nbsp
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </div>
-                
-            </div>
-
-            <div class="item">
-                <div class="item-body">
-                    <div class="item-left">
-                        <div class="identificadores">
-                            <p>#000005&nbsp</p>
-                            <span class="tag vestuario">vestuário</span>
-                        </div> 
-                        <p class="item-name">Notebook</p>
-                    </div>
-                    <div class="item-right">
-                        <p>SKU: 123456</p>
-                        <p>Quantidade: 45</p>
-                    </div>
-                </div>
-                
-                <div class="container-btns">
-                    <button class="edit-btn">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                        &nbspEditar
-                    </button>
-                    <button class="delete-btn">
-                        Deletar&nbsp
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </div>
-                
-            </div>
-
-            <div class="item">
-                <div class="item-body">
-                    <div class="item-left">
-                        <div class="identificadores">
-                            <p>#000006&nbsp</p>
-                            <span class="tag escritorio">escritório</span>
-                        </div> 
-                        <p class="item-name">Notebook</p>
-                    </div>
-                    <div class="item-right">
-                        <p>SKU: 123456</p>
-                        <p>Quantidade: 45</p>
-                    </div>
-                </div>
-                
-                <div class="container-btns">
-                    <button class="edit-btn">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                        &nbspEditar
-                    </button>
-                    <button class="delete-btn">
-                        Deletar&nbsp
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </div>
-                
-            </div>
+            <?php endforeach; ?> 
+            
 
         </div>
     </div>

@@ -52,6 +52,7 @@ input {
     text-align: left;
     display: flex;
     font-weight: 400;
+    font-size: 25px;
 }
 
 
@@ -252,7 +253,7 @@ input {
     margin: 0px 5px 0px 5px;
 }
 
-.tag {
+.tag-1, .tag-2, .tag-3, .tag-4, .tag-5, .tag-7 {
     display: flex;
     padding: 5px;
     border-radius: 5px;
@@ -263,16 +264,28 @@ input {
     font-weight: 400;
 }
 
-.tag.vestuario {
-    background-color: #414414;
-}
-
-.tag.eletronico {
+.tag-1 {
     background-color: #3b265e;
 }
 
-.tag.escritorio {
+.tag-2 {
     background-color: #405240;
+}
+
+.tag-3 {
+    background-color: #405240;
+}
+
+.tag-4 {
+    background-color: #414414;
+}
+
+.tag-5 {
+    background-color: #414414;
+}
+
+.tag-7 {
+    background-color: #3b265e;
 }
 
 .delete-btn {
@@ -296,4 +309,5 @@ input {
     font-size: 18px;
     padding-top: 3px;
     padding-bottom: 4px;
+    padding-inline: 6px;
 }
