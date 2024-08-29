@@ -28,7 +28,7 @@ a {
 }
 
 
-input {
+input, select {
     width: 100%;
     box-sizing: border-box;
 }
@@ -38,7 +38,7 @@ input {
     padding: 1vh;
     border-radius: 10px;
     background-color: #1b2838;
-    width: 450px;
+    width: 485px;
 }
 
 .header.cadastro {
@@ -84,12 +84,12 @@ input {
     border-radius: 0px 5px 5px 0px;
 }
 
-.container-form select {
-    height: 36px;
-    margin-bottom: 0px;
-}
+/* .container-form select {
+    height: 30px;
+    margin-bottom: 10px;
+} */
 
-.container-form button {
+.container-form .edit-btn {
     background-color: #5ba32b;
     color: #FFFFFF;
     font-size: 20px;

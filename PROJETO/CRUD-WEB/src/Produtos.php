@@ -8,4 +8,28 @@ class Produtos
     {
         return $_SESSION['produtos'];
     }
+
+    public function criar()
+    {
+
+    }
+    public function salvar()
+    {
+
+    }
+
+    public function editar()
+    {
+
+    }
+
+    public function atualizar()
+    {
+
+    }
+
+    public function deletar()
+    {
+        
+    }
 }
