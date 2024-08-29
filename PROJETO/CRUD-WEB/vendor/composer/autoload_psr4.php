@@ -6,6 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Public\\' => array($baseDir . '/public'),
-    'App\\' => array($baseDir . '/src'),
+    'Codifica\\Produtos\\' => array($baseDir . '/src'),
 );

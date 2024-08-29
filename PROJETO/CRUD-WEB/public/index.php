@@ -4,6 +4,8 @@
 
     require __DIR__ . '/../vendor/autoload.php';
 
+    use Codifica\Produtos\Produtos;
+
     // Define o array de categorias, unidades de medida e produtos
     $_SESSION['categorias'] = [
         '1' => 'Eletrônicos',
@@ -80,8 +82,5 @@
         ],
     ];
 
-    use App\Produtos;
-    $rotasProdutos = new Produtos();
-    $rotasProdutos->listar();
-    // Redireciona para a página de listagem
+
     header('Location: listagem.php');

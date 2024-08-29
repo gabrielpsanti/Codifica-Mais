@@ -1,93 +1,32 @@
 <?php
 
-// namespace Public;
+require __DIR__ . '/../vendor/autoload.php';
 
-// use App\Produtos;
+use Codifica\Produtos\Produtos;
 
-// $rotasProdutos = new Produtos();
-// var_dump($rotasProdutos->listar());
-// exit();
+$rota = new Produtos();
 
 session_start();
 
 if (!isset($_SESSION['produtos'])) {
-    $_SESSION['produtos'] = [];
-}
-
-
-function criarID()
-{
-    $novoID = end($_SESSION['produtos'])['id'] + 1;
-    return $novoID;
-}
-
-if (isset($_POST['editar'])) {
-
-    $id = $_POST['id'];
-
-    $indice = array_search($id, array_column($_SESSION['produtos'], 'id'));
-
-    if ($indice !== false) {
-        $_SESSION['produtos'][$indice]['nome'] = $_POST['nome'];
-        $_SESSION['produtos'][$indice]['sku'] = $_POST['sku'];
-        $_SESSION['produtos'][$indice]['valor'] = $_POST['valor'];
-        $_SESSION['produtos'][$indice]['quantidade'] = $_POST['quantidade'];
-        $_SESSION['produtos'][$indice]['unidade_medida_id'] = $_POST['unidade-medida'];
-        $_SESSION['produtos'][$indice]['categoria_id'] = $_POST['tag'];
-
-        header('Location: listagem.php');
-        exit;
-    }
+    $rota->listar();
 }
 
 if (isset($_POST['cadastrar'])) {
 
-    $id = criarID();
+    $rota->criar();
+}
 
-    $_SESSION['produtos'][] = [
-        'id' => $id,
-        'nome' => $_POST['nome'],
-        'sku' => $_POST['sku'],
-        'unidade_medida_id' => $_POST['unidade-medida'],
-        'valor' => $_POST['valor'],
-        'quantidade' => $_POST['quantidade'],
-        'categoria_id' => $_POST['tag'],
-    ];
-    header('Location: listagem.php');
-    exit;
+if (isset($_POST['editar'])) {
+
+    $rota->editar($_POST['id']);
 }
 
 if (isset($_POST['deletar'])){
 
-    $id = $_POST['id'];
-    $indice = array_search($id, array_column($_SESSION['produtos'], 'id'));
-    if ($indice !== false) {    
-        unset($_SESSION['produtos'][$indice]);
-        $_SESSION['produtos'] = array_values($_SESSION['produtos']);
-        header('Location: listagem.php');
-        exit;
-    }
+    $rota->deletar($_POST['id']);
+
 }
-
-// if (isset($_POST['pesquisar'])) {
-//     $palavraPesquisada = $_POST['pesquisar'];
-
-//     $novoArray = [];
-//     foreach($produtos as $produto) {
-//         if (str_contains($produto['nome'], $palavraPesquisada)) {
-//             $novoArray[] = $produto;
-//         }
-//     }
-
-//     var_dump($novoArray);
-
-//     if (!empty($novoArray)) {
-//         $produtos = $novoArray;
-//         $var_dump($produtos);
-//         header('Location: listagem.php');
-//         exit;
-//     }
-// }
 
 
 ?>
