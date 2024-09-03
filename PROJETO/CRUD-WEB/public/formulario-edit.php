@@ -48,7 +48,7 @@ function imprimirDadosSelect(int $id, string $chave, string $tabelaTipo): void
             </div>
             <div class="formulario">
                 <div class="container-form">
-                    <form action="listagem.php" method="POST">
+                    <form action="/" method="POST">
                         <input type="hidden" name="id" value="<?= $_POST['id-edit'] ?>">
 
                         <div class="cadastro-name">
