@@ -33,6 +33,10 @@ input, select {
     box-sizing: border-box;
 }
 
+form {
+    display: inline;
+}
+
 .container {
     border: 1px solid black;
     padding: 1vh;
@@ -209,6 +213,7 @@ input, select {
 .new-item {
     display: flex;
     align-items: flex-end;
+    align-items: center;
 }
 
 .new-item-btn {
@@ -218,7 +223,7 @@ input, select {
     border-radius: 7px;
     padding: 12px 18px;
     font-size: 20px;
-    height: 25px;
+    height: auto;
 }
 
 

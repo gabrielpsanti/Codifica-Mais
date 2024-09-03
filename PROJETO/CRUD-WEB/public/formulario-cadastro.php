@@ -16,7 +16,7 @@ session_start();
     
     <div class="container">
             <div class="header cadastro">
-                <a class="new-item-btn cadastro" href="listagem.php">
+                <a class="new-item-btn cadastro" href="/">
                     <i class="fa-solid fa-chevron-left"></i>
                     &nbspVoltar
                 </a>
@@ -26,7 +26,7 @@ session_start();
             </div>
             <div class="formulario">
                 <div class="container-form">
-                    <form action="listagem.php" method="POST">
+                    <form action="/" method="POST">
 
                         <div class="cadastro-name">
                             <label for="nome" class="required">Nome</label><br>
@@ -78,7 +78,7 @@ session_start();
                                 </select>
                             </section>
                             
-                            <button class="edit-btn" type="submit" name="cadastrar">Cadastrar</button>
+                            <button class="edit-btn" type="submit" name="salvar">Cadastrar</button>
                         </div>
                     </form>
                 </div>

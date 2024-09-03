@@ -82,5 +82,33 @@
         ],
     ];
 
+    $rota = new Produtos();
 
-    header('Location: listagem.php');
+    if (!isset($_SESSION['produtos'])) {
+        $_SESSION['produtos'] = [];
+    }
+
+    if (isset($_SESSION['produtos']) && (!isset($_POST['criar'])) && (!isset($_POST['id-edit'])) && (!isset($_POST['deletar']))) {
+        $rota->listar();
+    }
+
+    if (isset($_POST['criar'])) {
+        $rota->criar();
+    }
+
+    if (isset($_POST['salvar'])) {
+        $rota->salvar();
+    }
+
+    if (isset($_POST['id-edit'])) {
+        $rota->editar();
+    }
+
+    if (isset($_POST['atualizar'])) {
+        $rota->atualizar($_POST['id']);
+    }
+
+    if (isset($_POST['deletar'])){
+        $rota->deletar($_POST['id']);
+
+    }

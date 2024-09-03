@@ -6,12 +6,6 @@ session_start();
 
 class Produtos
 {
-    public function listar(): array
-    {
-        $_SESSION['produtos'] = [];
-        return $_SESSION['produtos'];
-    }
-
     private function criarID(): int
     {
         $novoID = end($_SESSION['produtos'])['id'] + 1;
@@ -24,13 +18,18 @@ class Produtos
         return $indice;
     }
 
-    public function atualizar(): void
+    public function listar()
     {
-        header('Location: listagem.php');
+        include '../public/listagem.php';
         exit;
     }
 
-    public function criar(): void
+    public function criar()
+    {
+        include '../public/formulario-cadastro.php';
+    }
+
+    public function salvar(): void
     {
         $id = $this->criarID();
 
@@ -44,10 +43,14 @@ class Produtos
             'categoria_id' => $_POST['tag'],
         ];
 
-        $this->atualizar();
     }
 
-    public function editar($id): void
+    public function editar()
+    {
+        include '../public/formulario-edit.php';
+    }
+
+    public function atualizar($id): void
     {
         $indice = $this->procurarIndice($id);
     
@@ -60,7 +63,6 @@ class Produtos
             $_SESSION['produtos'][$indice]['categoria_id'] = $_POST['tag'];
         }
 
-        $this->atualizar();
     }
 
     public function deletar($id): void
@@ -70,17 +72,8 @@ class Produtos
         if ($indice !== false) {    
             unset($_SESSION['produtos'][$indice]);
             $_SESSION['produtos'] = array_values($_SESSION['produtos']);
-            header('Location: listagem.php');
-            exit;
+            header('Location: /');
         }
-
-        $this->atualizar();
-    }
-
-    //Não entendi onde usaria a função salvar
-    public function salvar()
-    {
-
     }
     
 }

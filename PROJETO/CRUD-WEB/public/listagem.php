@@ -1,32 +1,32 @@
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
+// require __DIR__ . '/../vendor/autoload.php';
 
-use Codifica\Produtos\Produtos;
+// use Codifica\Produtos\Produtos;
 
-$rota = new Produtos();
+// $rota = new Produtos();
 
 session_start();
 
-if (!isset($_SESSION['produtos'])) {
-    $rota->listar();
-}
+// if (!isset($_SESSION['produtos'])) {
+//     $rota->listar();
+// }
 
-if (isset($_POST['cadastrar'])) {
+// if (isset($_POST['cadastrar'])) {
 
-    $rota->criar();
-}
+//     $rota->criar();
+// }
 
-if (isset($_POST['editar'])) {
+// if (isset($_POST['editar'])) {
 
-    $rota->editar($_POST['id']);
-}
+//     $rota->editar($_POST['id']);
+// }
 
-if (isset($_POST['deletar'])){
+// if (isset($_POST['deletar'])){
 
-    $rota->deletar($_POST['id']);
+//     $rota->deletar($_POST['id']);
 
-}
+// }
 
 
 ?>
@@ -43,10 +43,13 @@ if (isset($_POST['deletar'])){
     <div class="container">
         <div class="header">
             <div class="new-item">
-                <a href="formulario-cadastro.php" class="new-item-btn">
-                    <i class="fa-solid fa-plus"></i>
-                    &nbspNovo item
-                </a>
+                <form action="/" method="POST"">
+                    <input type="hidden" name="criar">
+                    <button type="submit" class="new-item-btn">
+                        <i class="fa-solid fa-plus"></i>
+                        &nbspNovo item
+                    </button>
+                </form>
             </div>
             
             <div class="search-bar">
@@ -86,11 +89,15 @@ if (isset($_POST['deletar'])){
                         </div>
                         
                         <div class="container-btns">
-                            <a href="formulario-edit.php?id=<?= $produto['id'] ?>" class="edit-btn">
+                        <form action="/" method="POST">
+                            <input type="hidden" name="id-edit" value="<?= $produto['id'] ?>">
+                            <button class="edit-btn" type="submit">
                                 <i class="fa-solid fa-pen-to-square"></i>
                                 &nbspEditar
-                            </a>
-                            <form action="listagem.php" method="POST">
+                            </button>
+                        </form>
+                            
+                            <form action="/" method="POST">
                                 <input type="hidden" name="id" value="<?= $produto['id'] ?>">
                                 <button class="delete-btn" type="submit" name="deletar">
                                     Deletar&nbsp
