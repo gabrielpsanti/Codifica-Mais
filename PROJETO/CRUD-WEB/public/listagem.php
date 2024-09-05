@@ -1,35 +1,9 @@
 <?php
 
-// require __DIR__ . '/../vendor/autoload.php';
-
-// use Codifica\Produtos\Produtos;
-
-// $rota = new Produtos();
-
-session_start();
-
-// if (!isset($_SESSION['produtos'])) {
-//     $rota->listar();
-// }
-
-// if (isset($_POST['cadastrar'])) {
-
-//     $rota->criar();
-// }
-
-// if (isset($_POST['editar'])) {
-
-//     $rota->editar($_POST['id']);
-// }
-
-// if (isset($_POST['deletar'])){
-
-//     $rota->deletar($_POST['id']);
-
-// }
-
+var_dump($_REQUEST);
 
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -89,7 +63,7 @@ session_start();
                         </div>
                         
                         <div class="container-btns">
-                        <form action="/" method="POST">
+                        <form action="/editar" method="GET">
                             <input type="hidden" name="id-edit" value="<?= $produto['id'] ?>">
                             <button class="edit-btn" type="submit">
                                 <i class="fa-solid fa-pen-to-square"></i>

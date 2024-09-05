@@ -88,27 +88,27 @@
         $_SESSION['produtos'] = [];
     }
 
-    if (isset($_SESSION['produtos']) && (!isset($_POST['criar'])) && (!isset($_POST['id-edit'])) && (!isset($_POST['deletar']))) {
+    if (isset($_SESSION['produtos']) && (!isset($_REQUEST['criar'])) && (!isset($_REQUEST['id-edit'])) && (!isset($_REQUEST['deletar']))) {
         $rota->listar();
     }
 
-    if (isset($_POST['criar'])) {
+    if (isset($_REQUEST['criar'])) {
         $rota->criar();
     }
 
-    if (isset($_POST['salvar'])) {
+    if (isset($_REQUEST['salvar'])) {
         $rota->salvar();
     }
 
-    if (isset($_POST['id-edit'])) {
+    if (isset($_REQUEST['id-edit'])) {
         $rota->editar();
     }
 
-    if (isset($_POST['atualizar'])) {
-        $rota->atualizar($_POST['id']);
+    if (isset($_REQUEST['atualizar'])) {
+        $rota->atualizar($_REQUEST['id']);
     }
 
-    if (isset($_POST['deletar'])){
-        $rota->deletar($_POST['id']);
+    if (isset($_REQUEST['deletar'])){
+        $rota->deletar($_REQUEST['id']);
 
     }

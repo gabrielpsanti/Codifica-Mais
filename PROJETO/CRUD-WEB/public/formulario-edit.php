@@ -49,23 +49,23 @@ function imprimirDadosSelect(int $id, string $chave, string $tabelaTipo): void
             <div class="formulario">
                 <div class="container-form">
                     <form action="/" method="POST">
-                        <input type="hidden" name="id" value="<?= $_POST['id-edit'] ?>">
+                        <input type="hidden" name="id" value="<?= $_REQUEST['id-edit'] ?>">
 
                         <div class="cadastro-name">
                             <label for="nome" class="required">Nome</label><br>
-                            <input type="text" name="nome" id="nome" value="<?php imprimirDadosSimples($_POST['id-edit'], 'nome');?>" required><br>
+                            <input type="text" name="nome" id="nome" value="<?php imprimirDadosSimples($_REQUEST['id-edit'], 'nome');?>" required><br>
                         </div>
                         
                         
                         <div class="container-halfs">
                             <div class="half">
                                 <label for="sku" class="required">SKU</label><br>
-                                <input type="text" name="sku" id="sku" value="<?php imprimirDadosSimples($_POST['id-edit'], 'sku');?>" required>
+                                <input type="text" name="sku" id="sku" value="<?php imprimirDadosSimples($_REQUEST['id-edit'], 'sku');?>" required>
 
                                 <label for="unidade-medida" class="required">Unidade de medida</label>
                                 <select name="unidade-medida" id="unidade-medida" required>
                                     <option value="" selected disabled>
-                                        <?php imprimirDadosSelect($_POST['id-edit'], 'unidade_medida_id', 'unidades_medidas');?>
+                                        <?php imprimirDadosSelect($_REQUEST['id-edit'], 'unidade_medida_id', 'unidades_medidas');?>
                                     </option>
                                     <option value="1">Un</option>
                                     <option value="2">Kg</option>
@@ -79,10 +79,10 @@ function imprimirDadosSelect(int $id, string $chave, string $tabelaTipo): void
                             </div>
                             <div class="half">
                                 <label for="valor" class="required">Preço</label><br>
-                                <input type="number" name="valor" id="valor" step="0.01" value="<?php imprimirDadosSimples($_POST['id-edit'], 'valor');?>" required><br>
+                                <input type="number" name="valor" id="valor" step="0.01" value="<?php imprimirDadosSimples($_REQUEST['id-edit'], 'valor');?>" required><br>
 
                                 <label for="quantidade" class="required">Quantidade</label><br>
-                                <input type="number" name="quantidade" id="quantidade" value="<?php imprimirDadosSimples($_POST['id-edit'], 'quantidade');?>" required><br>
+                                <input type="number" name="quantidade" id="quantidade" value="<?php imprimirDadosSimples($_REQUEST['id-edit'], 'quantidade');?>" required><br>
                             </div>
                             
                             
@@ -94,7 +94,7 @@ function imprimirDadosSelect(int $id, string $chave, string $tabelaTipo): void
                                 <label for="categorias" class="required">Categorias</label><br>
                                 <select name="tag" id="tag" required>
                                     <option value="" selected disabled>
-                                        <?php imprimirDadosSelect($_POST['id-edit'], 'categoria_id', 'categorias');?>
+                                        <?php imprimirDadosSelect($_REQUEST['id-edit'], 'categoria_id', 'categorias');?>
                                     </option>
                                     <option value="1">Eletrônicos</option>
                                     <option value="2">Eletrodomesticos</option>
