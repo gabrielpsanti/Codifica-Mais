@@ -33,15 +33,9 @@ class Produtos
     {
         $id = $this->criarID();
 
-        $_SESSION['produtos'][] = [
-            'id' => $id,
-            'nome' => $_POST['nome'],
-            'sku' => $_POST['sku'],
-            'unidade_medida_id' => $_POST['unidade-medida'],
-            'valor' => $_POST['valor'],
-            'quantidade' => $_POST['quantidade'],
-            'categoria_id' => $_POST['tag'],
-        ];
+        $_SESSION['produtos'][$id] = $_REQUEST;
+
+        header('Location: /produtos');
 
     }
 
@@ -55,14 +49,8 @@ class Produtos
         $indice = $this->procurarIndice($id);
     
         if ($indice !== false) {
-            $_SESSION['produtos'][$indice]['nome'] = $_POST['nome'];
-            $_SESSION['produtos'][$indice]['sku'] = $_POST['sku'];
-            $_SESSION['produtos'][$indice]['valor'] = $_POST['valor'];
-            $_SESSION['produtos'][$indice]['quantidade'] = $_POST['quantidade'];
-            $_SESSION['produtos'][$indice]['unidade_medida_id'] = $_POST['unidade-medida'];
-            $_SESSION['produtos'][$indice]['categoria_id'] = $_POST['tag'];
+            $_SESSION['produtos'][$indice] = $_REQUEST;
         }
-
     }
 
     public function deletar($id): void

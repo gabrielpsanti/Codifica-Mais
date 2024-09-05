@@ -3,6 +3,7 @@
     session_start();
 
     require __DIR__ . '/../vendor/autoload.php';
+    require __DIR__ . '/../src/helper.php';
 
     use Codifica\Produtos\Produtos;
 
@@ -27,88 +28,114 @@
         '8' => 'm²',
     ];
 
-    $_SESSION['produtos'] = [[
-            'id' => 1,
-            'nome' => 'Smartphone',
-            'sku' => '123456',
-            'unidade_medida_id' => '1',
-            'valor' => 1500.00,
-            'quantidade' => 10,
-            'categoria_id' => '1',
-        ],[
-            'id' => 2,
-            'nome' => 'Geladeira',
-            'sku' => '123457',
-            'unidade_medida_id' => '2',
-            'valor' => 2500.00,
-            'quantidade' => 50,
-            'categoria_id' => '2',
-        ],
-        [
-            'id' => 3,
-            'nome' => 'Celular',
-            'sku' => '123457',
-            'unidade_medida_id' => '2',
-            'valor' => 20.00,
-            'quantidade' => 5,
-            'categoria_id' => '3',
-        ],
-        [
-            'id' => 4,
-            'nome' => 'Cadeira',
-            'sku' => '123457',
-            'unidade_medida_id' => '2',
-            'valor' => 2500.00,
-            'quantidade' => 4,
-            'categoria_id' => '4',
-        ],
-        [
-            'id' => 5,
-            'nome' => 'Camisa',
-            'sku' => '123457',
-            'unidade_medida_id' => '2',
-            'valor' => 2500.00,
-            'quantidade' => 5,
-            'categoria_id' => '5',
-        ],
-        [
-            'id' => 6,
-            'nome' => 'Geladeira',
-            'sku' => '123457',
-            'unidade_medida_id' => '2',
-            'valor' => 90.00,
-            'quantidade' => 5,
-            'categoria_id' => '7',
-        ],
-    ];
+    if (empty($_SESSION['produtos'])){
+        $_SESSION['produtos'] = [
+            [
+                'id' => 1,
+                'nome' => 'Smartphone',
+                'sku' => '123456',
+                'unidade_medida_id' => '1',
+                'valor' => 1500.00,
+                'quantidade' => 10,
+                'categoria_id' => '1',
+            ],[
+                'id' => 2,
+                'nome' => 'Geladeira',
+                'sku' => '123457',
+                'unidade_medida_id' => '2',
+                'valor' => 2500.00,
+                'quantidade' => 50,
+                'categoria_id' => '2',
+            ],
+            [
+                'id' => 3,
+                'nome' => 'Celular',
+                'sku' => '123457',
+                'unidade_medida_id' => '2',
+                'valor' => 20.00,
+                'quantidade' => 5,
+                'categoria_id' => '3',
+            ],
+            [
+                'id' => 4,
+                'nome' => 'Cadeira',
+                'sku' => '123457',
+                'unidade_medida_id' => '2',
+                'valor' => 2500.00,
+                'quantidade' => 4,
+                'categoria_id' => '4',
+            ],
+            [
+                'id' => 5,
+                'nome' => 'Camisa',
+                'sku' => '123457',
+                'unidade_medida_id' => '2',
+                'valor' => 2500.00,
+                'quantidade' => 5,
+                'categoria_id' => '5',
+            ],
+            [
+                'id' => 6,
+                'nome' => 'Geladeira',
+                'sku' => '123457',
+                'unidade_medida_id' => '2',
+                'valor' => 90.00,
+                'quantidade' => 5,
+                'categoria_id' => '7',
+            ],
+        ];
+    }
 
     $rota = new Produtos();
 
-    if (!isset($_SESSION['produtos'])) {
-        $_SESSION['produtos'] = [];
-    }
+    $uri = $_SERVER['PATH_INFO'];
+    $page = rtrim($uri, '/') ?: '/';
 
-    if (isset($_SESSION['produtos']) && (!isset($_REQUEST['criar'])) && (!isset($_REQUEST['id-edit'])) && (!isset($_REQUEST['deletar']))) {
+    // dd($page);
+
+    if ($page == '/produtos'){
         $rota->listar();
     }
 
-    if (isset($_REQUEST['criar'])) {
+    if ($page == '/produtos/criar'){
         $rota->criar();
     }
 
-    if (isset($_REQUEST['salvar'])) {
+    if ($page == '/produtos/salvar'){
         $rota->salvar();
     }
 
-    if (isset($_REQUEST['id-edit'])) {
+    if ($page == '/produtos/editar'){
         $rota->editar();
     }
 
-    if (isset($_REQUEST['atualizar'])) {
+    if ($page == '/produtos/atualizar'){
         $rota->atualizar($_REQUEST['id']);
     }
 
-    if (isset($_REQUEST['deletar'])){
-        $rota->deletar($_REQUEST['id']);
 
-    }
+    // if (isset($_SESSION['produtos']) && (!isset($_REQUEST['criar'])) && (!isset($_REQUEST['id-edit'])) && (!isset($_REQUEST['deletar']))) {
+    //     $rota->listar();
+    // }
+
+    // if (isset($_REQUEST['criar'])) {
+    //     $rota->criar();
+    // }
+
+    // if (isset($_REQUEST['salvar'])) {
+    //     $rota->salvar();
+    // }
+
+    // if (isset($_REQUEST['id-edit'])) {
+    //     $rota->editar();
+    // }
+
+    // if (isset($_REQUEST['atualizar'])) {
+    //     $rota->atualizar($_REQUEST['id']);
+    // }
+
+    // if (isset($_REQUEST['deletar'])){
+    //     $rota->deletar($_REQUEST['id']);
+
+    // }
+

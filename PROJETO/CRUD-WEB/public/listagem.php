@@ -1,9 +1,3 @@
-<?php
-
-var_dump($_REQUEST);
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,7 +11,7 @@ var_dump($_REQUEST);
     <div class="container">
         <div class="header">
             <div class="new-item">
-                <form action="/" method="POST"">
+                <form action="/produtos/criar" method="POST"">
                     <input type="hidden" name="criar">
                     <button type="submit" class="new-item-btn">
                         <i class="fa-solid fa-plus"></i>
@@ -63,7 +57,7 @@ var_dump($_REQUEST);
                         </div>
                         
                         <div class="container-btns">
-                        <form action="/editar" method="GET">
+                        <form action="/produtos/editar" method="GET">
                             <input type="hidden" name="id-edit" value="<?= $produto['id'] ?>">
                             <button class="edit-btn" type="submit">
                                 <i class="fa-solid fa-pen-to-square"></i>
