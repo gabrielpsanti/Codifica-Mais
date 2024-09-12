@@ -3,7 +3,7 @@
         'name' => 'codifica/gerenciador-estoque',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '352fc3f4b74f2f685271913fe207b876c3b97ad2',
+        'reference' => 'b702237d7de2276c7cf65adee689c97883e0ba55',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'codifica/gerenciador-estoque' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '352fc3f4b74f2f685271913fe207b876c3b97ad2',
+            'reference' => 'b702237d7de2276c7cf65adee689c97883e0ba55',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

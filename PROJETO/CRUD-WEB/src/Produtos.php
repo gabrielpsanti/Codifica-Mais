@@ -1,12 +1,12 @@
 <?php
 
-namespace Codifica\Produtos;
+namespace App;
 
-session_start();
+use PDO;
 
 class Produtos
 {
-    private function criarID(): int
+    public function criarID(): int
     {
         $novoID = end($_SESSION['produtos'])['id'] + 1;
         return $novoID;
@@ -27,13 +27,13 @@ class Produtos
     public function criar()
     {
         include '../public/formulario-cadastro.php';
+        exit;
     }
 
     public function salvar(): void
     {
-        $id = $this->criarID();
 
-        $_SESSION['produtos'][$id] = $_REQUEST;
+        $_SESSION['produtos'][] = $_POST;
 
         header('Location: /produtos');
 
@@ -42,6 +42,7 @@ class Produtos
     public function editar()
     {
         include '../public/formulario-edit.php';
+        exit;
     }
 
     public function atualizar($id): void
@@ -51,6 +52,8 @@ class Produtos
         if ($indice !== false) {
             $_SESSION['produtos'][$indice] = $_REQUEST;
         }
+
+        header('Location: /produtos');
     }
 
     public function deletar($id): void
@@ -60,7 +63,7 @@ class Produtos
         if ($indice !== false) {    
             unset($_SESSION['produtos'][$indice]);
             $_SESSION['produtos'] = array_values($_SESSION['produtos']);
-            header('Location: /');
+            header('Location: /produtos');
         }
     }
     

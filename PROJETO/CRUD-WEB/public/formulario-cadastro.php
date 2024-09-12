@@ -11,7 +11,7 @@
     
     <div class="container">
             <div class="header cadastro">
-                <a class="new-item-btn cadastro" href="/">
+                <a class="new-item-btn cadastro" href="/produtos">
                     <i class="fa-solid fa-chevron-left"></i>
                     &nbspVoltar
                 </a>
@@ -35,7 +35,7 @@
                                 <input type="text" name="sku" id="sku" required>
 
                                 <label for="unidade-medida" class="required">Unidade de medida</label>
-                                <select name="unidade-medida" id="unidade-medida" required>
+                                <select name="unidade_medida_id" id="unidade-medida" required>
                                     <option value="0" selected disabled></option>
                                     <option value="1">Un</option>
                                     <option value="2">Kg</option>
@@ -62,7 +62,7 @@
                         <div class="cadastro-categoria">
                             <section>
                                 <label for="categorias" class="required">Categorias</label><br>
-                                <select name="tag" required>
+                                <select name="categoria_id" required>
                                     <option value="0" selected disabled></option>
                                     <option value="1">Eletrônico</option>
                                     <option value="2">Eletrodomestico</option>
@@ -72,6 +72,8 @@
                                     <option value="7">Outros</option>
                                 </select>
                             </section>
+
+                            <input type="hidden" name="id" value="<?= end($_SESSION['produtos'])['id'] + 1; ?>"/>
                             
                             <button class="edit-btn" type="submit" name="salvar">Cadastrar</button>
                         </div>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -34,39 +35,39 @@
                 
         </div>
         <div class="container-items">
-            <?php if (empty($_SESSION['produtos'])) {?>
+            <?php if (empty($produtos)) {?>
                 <div class="item">
                     <p>Nenhum produto encontrado.</p>
                 </div>
                     
             <?php } else { ?>
-                <?php foreach ($_SESSION['produtos'] as $produto) { ?>
+                <?php foreach ($produtos as $produto) { ?>
                     <div class="item">
                         <div class="item-body">
                             <div class="item-left">
                                 <div class="identificadores">
-                                    <p class="id">#00000<?= $produto['id']?>&nbsp</p>
-                                    <span class="tag-<?= $produto['categoria_id']?>"><?= $_SESSION['categorias'][$produto['categoria_id']]?></span>
+                                    <p class="id">#00000<?= $produto->getId()?>&nbsp</p>
+                                    <span class="tag-<?= $produto->getCategoriaId()?>"><?= $categorias[($produto->getCategoriaId() - 1)]['nome']?></span>
                                 </div> 
-                                <p class="item-name"><?= $produto['nome']?></p>
+                                <p class="item-name"><?= $produto->getNome()?></p>
                             </div>
                             <div class="item-right">
-                                <p>SKU: <?= $produto['sku']?></p>
-                                <p>Quantidade: <?= $produto['quantidade']?></p>
+                                <p>SKU: <?= $produto->getSku()?></p>
+                                <p>Quantidade: <?= $produto->getQuantidade()?></p>
                             </div>
                         </div>
                         
                         <div class="container-btns">
                         <form action="/produtos/editar" method="GET">
-                            <input type="hidden" name="id-edit" value="<?= $produto['id'] ?>">
+                            <input type="hidden" name="id" value="<?= $produto->getId() ?>">
                             <button class="edit-btn" type="submit">
                                 <i class="fa-solid fa-pen-to-square"></i>
                                 &nbspEditar
                             </button>
                         </form>
                             
-                            <form action="/" method="POST">
-                                <input type="hidden" name="id" value="<?= $produto['id'] ?>">
+                            <form action="/produtos/deletar?id=<?= $produto->getId() ?>" method="POST">
+                                <input type="hidden" name="id" value="<?= $produto->getId() ?>">
                                 <button class="delete-btn" type="submit" name="deletar">
                                     Deletar&nbsp
                                     <i class="fa-solid fa-trash"></i>
