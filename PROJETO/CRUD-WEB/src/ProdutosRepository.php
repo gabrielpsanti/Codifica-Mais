@@ -48,11 +48,12 @@ class ProdutosRepository
         $statement = $this->pdo->query($sql);
         $dados = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        $conjuntoDeDados = array_map(function ($produto) {
-            return $this->criarObjeto($produto);
-        }, $dados);
+        // $conjuntoDeDados = array_map(function ($produto) {
+        //     return $this->criarObjeto($produto);
+        // }, $dados);
 
-        return $conjuntoDeDados;
+        // return $conjuntoDeDados;
+        return $dados;
     }
 
     public function listarCategorias(): array 

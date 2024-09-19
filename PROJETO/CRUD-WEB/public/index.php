@@ -1,168 +1,48 @@
 <?php
-    // Inicia a sessão
-    session_start();
 
     require __DIR__ . '/../vendor/autoload.php';
     require __DIR__ . '/../src/helper.php';
-    require __DIR__ . '/../src/connection.php';
+    require __DIR__ . '/../config//keys/bdkeys.php';
 
-    use App\IniciarTabelas;
-    use App\ProdutosRepository;
-    use App\Produto;
+    use App\Controllers\ProdutoController;
 
+    $instance = new ProdutoController(DB_HOST, DB_NAME, DB_USER, DB_PASS);
 
-    $iniciarTabelas = new IniciarTabelas();
-    $iniciarTabelas->criarTabelas();
-
-    $repositorio = new ProdutosRepository($pdo);
-
-    $dados = $repositorio->gerarArrayDados();
-    $produtos = $dados['produtos'];
-    $categorias = $dados['categorias'];
-    $unidadesMedida = $dados['unidadesMedida'];
-
-    $uri = $_SERVER['PATH_INFO'];
-    $page = rtrim($uri, '/') ?: '/';
-
-    // dd($page);
+    $page = $_SERVER['PATH_INFO'];
 
     if ($page == '/' || !isset($_SERVER['PATH_INFO'])){
         header('Location: /produtos');
         exit;
     }
 
-    if ($page == '/produtos') { 
-        include '../public/listagem.php';
-        exit;
+    if ($page == '/produtos' || $page == '/produtos/pesquisar'){ 
+        $instance->listar();
     }
 
-    // if ($page == '/produtos/criar'){
-    //     $repositorio->criar();
-    // }
+    if ($page == '/produtos/criar'){
+        $instance->criar();
+    }
 
-    // if ($page == '/produtos/salvar'){
-    //     $repositorio->salvar();
-    // }
+    if ($page == '/produtos/salvar'){
+        $instance->salvar($_POST);
+    }
 
-    // if ($page == '/produtos/editar'){
-    //     $repositorio->editar();
-    // }
+    if ($page == '/produtos/editar'){
+        $instance->editar();
+    }
 
-    // if ($page == '/produtos/atualizar'){
-    //     $repositorio->atualizar($_GET['id']);
-    // }
+    if ($page == '/produtos/atualizar'){
+        $instance->atualizar($_GET['id'], $_POST);
+    }
 
-    // if ($page == '/produtos/deletar'){
-    //     $repositorio->deletar($_GET['id']);
-    // }
+    if ($page == '/produtos/deletar'){
+        $instance->deletar($_GET['id']);
+    }
 
     else {
         echo "Página não encontrada! :(";
     }
 
 
-    // if (isset($_SESSION['produtos']) && (!isset($_REQUEST['criar'])) && (!isset($_REQUEST['id-edit'])) && (!isset($_REQUEST['deletar']))) {
-    //     $repositorio->listar();
-    // }
 
-    // if (isset($_REQUEST['criar'])) {
-    //     $repositorio->criar();
-    // }
-
-    // if (isset($_REQUEST['salvar'])) {
-    //     $repositorio->salvar();
-    // }
-
-    // if (isset($_REQUEST['id-edit'])) {
-    //     $repositorio->editar();
-    // }
-
-    // if (isset($_REQUEST['atualizar'])) {
-    //     $repositorio->atualizar($_REQUEST['id']);
-    // }
-
-    // if (isset($_REQUEST['deletar'])){
-    //     $repositorio->deletar($_REQUEST['id']);
-
-    // }
-
-    
-    // Define o array de categorias, unidades de medida e produtos
-    // $_SESSION['categorias'] = [
-    //     '1' => 'Eletrônicos',
-    //     '2' => 'Eletrodomésticos',
-    //     '3' => 'Móveis',
-    //     '4' => 'Decoração',
-    //     '5' => 'Vestuário',
-    //     '7' => 'Outros'
-    // ];
-
-    // $_SESSION['unidades_medidas'] = [
-    //     '1' => 'Un',
-    //     '2' => 'Kg',
-    //     '3' => 'g',
-    //     '4' => 'L',
-    //     '5' => 'mm',
-    //     '6' => 'cm',
-    //     '7' => 'm',
-    //     '8' => 'm²',
-    // ];
-
-    // if (empty($_SESSION['produtos'])){
-    //     $_SESSION['produtos'] = [
-    //         [
-    //             'id' => 1,
-    //             'nome' => 'Smartphone',
-    //             'sku' => '123456',
-    //             'unidade_medida_id' => '1',
-    //             'valor' => 1500.00,
-    //             'quantidade' => 10,
-    //             'categoria_id' => '1',
-    //         ],[
-    //             'id' => 2,
-    //             'nome' => 'Geladeira',
-    //             'sku' => '123457',
-    //             'unidade_medida_id' => '2',
-    //             'valor' => 2500.00,
-    //             'quantidade' => 50,
-    //             'categoria_id' => '2',
-    //         ],
-    //         [
-    //             'id' => 3,
-    //             'nome' => 'Celular',
-    //             'sku' => '123457',
-    //             'unidade_medida_id' => '2',
-    //             'valor' => 20.00,
-    //             'quantidade' => 5,
-    //             'categoria_id' => '3',
-    //         ],
-    //         [
-    //             'id' => 4,
-    //             'nome' => 'Cadeira',
-    //             'sku' => '123457',
-    //             'unidade_medida_id' => '2',
-    //             'valor' => 2500.00,
-    //             'quantidade' => 4,
-    //             'categoria_id' => '4',
-    //         ],
-    //         [
-    //             'id' => 5,
-    //             'nome' => 'Camisa',
-    //             'sku' => '123457',
-    //             'unidade_medida_id' => '2',
-    //             'valor' => 2500.00,
-    //             'quantidade' => 5,
-    //             'categoria_id' => '5',
-    //         ],
-    //         [
-    //             'id' => 6,
-    //             'nome' => 'Geladeira',
-    //             'sku' => '123457',
-    //             'unidade_medida_id' => '2',
-    //             'valor' => 90.00,
-    //             'quantidade' => 5,
-    //             'categoria_id' => '7',
-    //         ],
-    //     ];
-    // }
-
+ 

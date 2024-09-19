@@ -3,7 +3,7 @@
 function dd($arg)
 {
     echo '<pre>';
-    var_dump($arg);
+    print_r($arg);
     echo '</pre>';
     die;
 }

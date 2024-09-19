@@ -1,0 +1,329 @@
+html {
+    background-color: #171D25;
+    color: #D2D2D2;
+    font-family: "Motiva Sans", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0px;
+}
+
+p {
+    margin: 5px;
+}
+
+button {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+input, select {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+form {
+    display: inline;
+}
+
+.container {
+    border: 1px solid black;
+    padding: 1vh;
+    border-radius: 10px;
+    background-color: #1b2838;
+    width: 550px;
+}
+
+.header.cadastro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cadastro-title {
+    margin: 5px 5px 5px 5px;
+    text-align: left;
+    display: flex;
+    font-weight: 400;
+    font-size: 25px;
+}
+
+
+.container-form {
+    border: 1px solid black;
+    padding: 1vh;
+    margin: 1vh;
+    border-radius: 0px 8px 8px 0px;
+    background-color: #171D25;
+    width: 100%;
+    display: flex;
+    height: 57%;
+}
+
+.container-form div {
+    margin: 0px 5px 0px 5px;
+    color: #D2D2D2;
+}
+
+.container-form input, select {
+    border: 0px;
+    background-color: #324965;
+    height: 30px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #F2F2F2;
+    font-size: 20px;
+    padding: 2px;
+    border-radius: 0px 5px 5px 0px;
+}
+
+/* .container-form select {
+    height: 30px;
+    margin-bottom: 10px;
+} */
+
+.container-form .edit-btn {
+    background-color: #5ba32b;
+    color: #FFFFFF;
+    font-size: 20px;
+    border: none;
+    border-radius: 7px;
+    padding: 12px 18px;
+}
+
+.container-halfs {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0px !important;
+}
+
+.cadastro-categoria {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.half {
+    width: 48%;
+    margin: 0px !important;
+}
+
+.cadastro-name {
+    margin-top: 5px !important;
+}
+.header {
+    display: flex;
+    margin: 1vh;
+    color: #FFFFFF;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 50px;
+}
+
+.container-items {
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 500px;
+    width: 100%;
+}
+
+.formulario {
+    height: 500px;
+    width: 100%;
+    display: flex;
+}
+
+/* Código da scrollbar copiado do site que usei de modelo, funcionou de boa. */
+.container-items::-webkit-scrollbar {
+    height: 12px;
+    width: 14px;
+    background: transparent;
+    overflow: visible;
+}
+
+.container-items::-webkit-scrollbar-corner {
+    background: #202020;
+}
+
+.container-items::-webkit-scrollbar-thumb {
+    width: 10px;
+    background-color: #434953;
+    border-radius: 10px;
+    z-index: 12;
+    border: 4px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    transition: background-color .32s ease-in-out;
+    margin: 4px;
+    min-height: 32px;
+    min-width: 32px;
+}
+
+.required:after {
+    content:" *"; 
+    color: red;
+  }
+
+.item {
+    margin: 1vh;
+    padding: 1vh;
+    border: 1px solid black;
+    border-radius: 0px 5px 5px 0px;
+    background-color: #171D25;
+}
+
+.item-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.item-name {
+    margin: 0px 5px 5px 5px;
+}
+
+.identificadores {
+    display: flex;
+    align-items: center;
+    
+}
+
+.identificadores p {
+    color: #979797;
+    font-size: 19px;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.item-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.new-item {
+    display: flex;
+    align-items: flex-end;
+    align-items: center;
+}
+
+.new-item-btn {
+    background-color: #5ba32b;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 7px;
+    padding: 12px 18px;
+    font-size: 20px;
+    height: auto;
+}
+
+
+.search-bar {
+    display: flex;
+    flex-direction: column;
+    padding-left: 7vh;
+}
+
+.search-body {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 0px 10px 10px 0px;
+    border: 1px solid black;
+    
+}
+
+.search-input {
+    border: 0px;
+    background-color: #324965;
+    color: #FFFFFF;
+    height: 22px;
+}
+
+
+.search-btn {
+    cursor: pointer;
+    border: 1px;
+    border-radius: 0px 10px 10px 0px;
+    color: #FFFFFF;
+    background-color: transparent;
+}
+
+.container-btns {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 5px 0px 5px;
+}
+
+.tag-1, .tag-2, .tag-3, .tag-4, .tag-5, .tag-7 {
+    display: flex;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 15px;
+    text-transform: uppercase;
+    align-items: center;
+    color: #FFFFFF;
+    font-weight: 400;
+}
+
+.tag-1 {
+    background-color: #3b265e;
+}
+
+.tag-2 {
+    background-color: #405240;
+}
+
+.tag-3 {
+    background-color: #405240;
+}
+
+.tag-4 {
+    background-color: #414414;
+}
+
+.tag-5 {
+    background-color: #be2598;
+}
+
+.tag-7 {
+    background-color: #875edf;
+}
+
+.delete-btn {
+    cursor: pointer;
+    border: 1px;
+    color: #FFFFFF;
+    background-color: #9e2323;
+    border-radius: 5px;
+    font-size: 18px;
+    padding-top: 3px;
+    padding-bottom: 4px;
+    
+}
+
+.edit-btn {
+    cursor: pointer;
+    border: 1px;
+    color: #FFFFFF;
+    background-color: #324965;
+    border-radius: 5px;
+    font-size: 18px;
+    padding-top: 3px;
+    padding-bottom: 4px;
+    padding-inline: 6px;
+}
+
+.search-input::placeholder {
+    color: #FFFFFF;
+    opacity: 0.45;
+}
