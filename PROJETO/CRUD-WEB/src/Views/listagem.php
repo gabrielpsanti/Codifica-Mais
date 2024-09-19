@@ -32,7 +32,7 @@ $instance = new ProdutoController(DB_HOST, DB_NAME, DB_USER, DB_PASS);
                 <label for="pesquisar">Buscar item</label>
                 <form action="/produtos/pesquisar" method="GET">
                     <div class="search-body">
-                        <input class="search-input" type="text" name="str" id="pesquisar">
+                        <input class="search-input" type="text" name="str" id="pesquisar" placeholder="Nome ou SKU">
                         <button type="submit" class="search-btn">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
