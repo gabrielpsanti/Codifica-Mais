@@ -1,8 +1,10 @@
 <?php
 
+namespace Codifica\Automoveis\Model;
+
 interface VeiculoInterface
 {
-    public function acelerar();
-    public function frear();
-    public function exibirDetalhes();
+    public function acelerar(): void;
+    public function frear(): void;
+    public function exibirDetalhes() :void;
 }

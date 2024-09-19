@@ -1,0 +1,11 @@
+{
+    "name": "codifica/gerenciador-estoque",
+    "description": "Gerenciador de estoque codifica +",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "require": {}
+}
