@@ -2,7 +2,8 @@
 
     require __DIR__ . '/../vendor/autoload.php';
     require __DIR__ . '/../src/helper.php';
-    require __DIR__ . '/../config//keys/bdkeys.php';
+    require __DIR__ . '/../config/keys/bdkeys.php';
+
 
     use App\Controllers\ProdutoController;
 
@@ -10,13 +11,8 @@
 
     $page = $_SERVER['PATH_INFO'];
 
-    if ($page == '/' || !isset($_SERVER['PATH_INFO'])){
-        header('Location: /produtos');
-        exit;
-    }
-
-    if ($page == '/produtos' || $page == '/produtos/pesquisar'){ 
-        $instance->listar();
+    if ($page == '/' || !isset($_SERVER['PATH_INFO']) || $page == '/produtos' || $page == '/produtos/pesquisar'){ 
+        return $instance->listar();
     }
 
     if ($page == '/produtos/criar'){

@@ -1,14 +1,3 @@
-<?php
-
-use App\Controllers\ProdutoController;
-
-$instance = new ProdutoController(DB_HOST, DB_NAME, DB_USER, DB_PASS);
-
-$unidadeMedidas = $instance->selectMedidas();
-$categorias = $instance->selectCategorias();
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -60,7 +49,7 @@ $categorias = $instance->selectCategorias();
                                 <input type="number" name="valor" id="valor" step="0.01" required>
 
                                 <label for="quantidade" class="required">Quantidade</label><br>
-                            <input type="number" name="quantidade" id="quantidade" required>
+                                <input type="number" name="quantidade" id="quantidade" required>
                             </div>
                             
                             

@@ -1,19 +1,3 @@
-<?php
-
-use App\Controllers\ProdutoController;
-
-$instance = new ProdutoController(DB_HOST, DB_NAME, DB_USER, DB_PASS);
-
-$id = $_GET['id'];
-
-$produto = $instance->selectUnitario($id);
-$produto = $produto[0];
-
-$unidadeMedidas = $instance->selectMedidas();
-$categorias = $instance->selectCategorias();
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -54,7 +38,7 @@ $categorias = $instance->selectCategorias();
                                 <label for="unidade-medida" class="required">Unidade de medida</label>
                                 <select name="unidade_medida_id" id="unidade-medida" required>
                                 <?php
-                                foreach ($unidadeMedidas as $unidade) {
+                                foreach ($unidadesMedidas as $unidade) {
                                     $selected = ($unidade['id'] == $produto['unidade_medida_id']) ? 'selected' : '';
                                     echo "<option value=" . $unidade['id'] . " $selected>{$unidade['nome']}</option>";
                                 }

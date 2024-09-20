@@ -25,7 +25,13 @@ class ProdutoController
 
     public function listar()
     {
-        include __DIR__ . '/../Views/listagem.php';
+       
+        if(isset($_GET['str']) && !empty($_GET['str'])) {
+            $produtos = self::pesquisar($_GET['str']);
+        } else {
+            $produtos = self::selectAll(); 
+        } 
+        require __DIR__ . '/../Views/listagem.php';
         exit;
     }
 
@@ -88,6 +94,8 @@ class ProdutoController
 
     public function criar()
     {
+        $unidadeMedidas = self::selectMedidas();
+        $categorias = self::selectCategorias();
         include __DIR__ . '/../Views/formulario-cadastro.php';
         exit;
     }
@@ -116,6 +124,14 @@ class ProdutoController
 
     public function editar()
     {
+        $id = $_GET['id'];
+
+        $produto = self::selectUnitario($id);
+        $produto = $produto[0];
+
+        $unidadesMedidas = self::selectMedidas();
+        $categorias = self::selectCategorias();
+
         include __DIR__ . '/../Views/formulario-edit.php';
         exit;
     }
