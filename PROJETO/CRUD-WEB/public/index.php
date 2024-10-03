@@ -20,7 +20,7 @@
     }
 
     if ($page == '/produtos/salvar'){
-        $instance->salvar($_POST);
+        $instance->salvar($_POST, $_FILES);
     }
 
     if ($page == '/produtos/editar'){

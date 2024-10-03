@@ -25,7 +25,7 @@ class ProdutoController
 
     public function listar()
     {
-       
+        
         if(isset($_GET['str']) && !empty($_GET['str'])) {
             $produtos = self::pesquisar($_GET['str']);
         } else {
@@ -100,10 +100,12 @@ class ProdutoController
         exit;
     }
 
-    public function salvar($postData)
+    public function salvar($postData, $postFiles)
     {
+
+        $diretorioImagem = $this->verificarArquivo($postFiles);
         
-        $sql = "INSERT INTO produto (nome, sku, unidade_medida_id, valor, quantidade, categoria_id) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO produto (nome, sku, unidade_medida_id, valor, quantidade, categoria_id, imagem) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try {
             $stmt = $this->pdo->prepare($sql);
@@ -114,6 +116,7 @@ class ProdutoController
             $stmt->bindValue(4, $postData['valor']);
             $stmt->bindValue(5, $postData['quantidade']);
             $stmt->bindValue(6, $postData['categoria_id']);
+            $stmt->bindValue(7, $diretorioImagem);
             $stmt->execute();
 
             header('Location: /');
@@ -236,5 +239,21 @@ class ProdutoController
         } catch (PDOException $e) {
             echo "Erro ao buscar dados: " . $e->getMessage();
         }
+    }
+
+    public function verificarArquivo($files){
+        if (!empty($files['imagem']['name'])){
+
+            move_uploaded_file($files['imagem']['tmp_name'], $this->getDiretorioImagem($files));
+
+            return $this->getDiretorioImagem($files);
+        } else {
+            return __DIR__ . "\\..\\Storage\\padrao.pn";
+        }
+
+    }
+
+    public function getDiretorioImagem($files){
+        return __DIR__ . "\\..\\Storage\\" . uniqid() . $files['imagem']['name'];
     }
 }

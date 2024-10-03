@@ -21,7 +21,7 @@
             </div>
             <div class="formulario">
                 <div class="container-form">
-                    <form action="/produtos/salvar" method="POST">
+                    <form action="/produtos/salvar" method="POST" enctype="multipart/form-data">
 
                         <div class="cadastro-name">
                             <label for="nome" class="required">Nome</label><br>
@@ -68,8 +68,17 @@
                                     ?>
                                 </select>
                             </section>
+                            <br><br>
+>
+                        </div>
+
+                        <div class="enviar-img">
+
+                            <label for="imagem">imagem</label>
+                            <input type="file" name="imagem" accept="image/png, image/jpg, image/jpeg" id="imagem" placeholder="Envie uma imagem">
                             
                             <button class="edit-btn" type="submit" name="salvar">Cadastrar</button>
+
                         </div>
                     </form>
                 </div>
