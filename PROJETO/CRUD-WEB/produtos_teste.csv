@@ -1,0 +1,5 @@
+nome,sku,valor,quantidade,categoria_id,unidade_medida_id
+Produto A,SKU001,10.0,100,1,1
+Produto B,SKU002,15.5,200,2,2
+Produto C,SKU003,8.75,150,1,1
+Produto D,SKU004,12.0,50,3,3

@@ -69,6 +69,7 @@ class ProdutoController
             produto.sku,
             produto.valor,
             produto.quantidade,
+            produto.imagem,
             categoria.id AS categoria_id,
             categoria.nome AS categoria_nome,
             unidade_medida.id AS unidade_medida_id,
@@ -147,6 +148,7 @@ class ProdutoController
             produto.sku,
             produto.valor,
             produto.quantidade,
+            produto.imagem,
             categoria.id AS categoria_id,
             categoria.nome AS categoria_nome,
             unidade_medida.id AS unidade_medida_id,
@@ -175,7 +177,10 @@ class ProdutoController
 
     public function atualizar($id, $post)
     {
-        $sql = "UPDATE produto SET nome = ?, sku = ?, unidade_medida_id = ?, valor = ?, quantidade = ?, categoria_id = ? WHERE id = ?";
+
+        $diretorioImagem = $this->verificarArquivo($_FILES);
+
+        $sql = "UPDATE produto SET nome = ?, sku = ?, unidade_medida_id = ?, valor = ?, quantidade = ?, categoria_id = ?, imagem = ? WHERE id = ?";
 
         try {
             $stmt = $this->pdo->prepare($sql);
@@ -186,7 +191,8 @@ class ProdutoController
             $stmt->bindValue(4, $post['valor']);
             $stmt->bindValue(5, $post['quantidade']);
             $stmt->bindValue(6, $post['categoria_id']);
-            $stmt->bindValue(7, $id);
+            $stmt->bindValue(7, $diretorioImagem);
+            $stmt->bindValue(8, $id);
             $stmt->execute();
             header('Location: /');
         } catch (PDOException $e) {
@@ -242,18 +248,32 @@ class ProdutoController
     }
 
     public function verificarArquivo($files){
+        if ($this->validarTamanhoImagem($files)){
+            echo "O tamanho da imagem deve ser do tipo PNG, JPG ou JPEG e menor que 2MB";
+            echo "<br><a href='/'>Voltar</a>";
+            die();
+        }
         if (!empty($files['imagem']['name'])){
+            $caminho = $this->getDiretorioImagem($files);
+            move_uploaded_file($files['imagem']['tmp_name'], $caminho);
 
-            move_uploaded_file($files['imagem']['tmp_name'], $this->getDiretorioImagem($files));
-
-            return $this->getDiretorioImagem($files);
+            // Função basename retorna nome do arquivo de um certo caminho 
+            return "/Storage/" . basename($caminho);
         } else {
-            return __DIR__ . "\\..\\Storage\\padrao.pn";
+            return "/Storage/padrao.png";
         }
 
     }
 
     public function getDiretorioImagem($files){
-        return __DIR__ . "\\..\\Storage\\" . uniqid() . $files['imagem']['name'];
+        return __DIR__ . "\\..\\..\\public\\Storage\\" . uniqid() . "_" . $files['imagem']['name'];
+    }
+
+    public function validarTamanhoImagem($files){
+        if ($files['imagem']['size'] > 2100000 || $files['imagem']['type'] != 'image/png' || $files['imagem']['type'] != 'image/jpeg' || $files['imagem']['type'] != 'image/jpg'){
+            return true;
+        } else {
+            return false;
+        }
     }
 }

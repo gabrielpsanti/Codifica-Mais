@@ -17,7 +17,16 @@
                     <input type="hidden" name="criar">
                     <button type="submit" class="new-item-btn">
                         <i class="fa-solid fa-plus"></i>
-                        &nbspNovo item
+                        &nbspNovo
+                    </button>
+                </form>
+            </div>
+            <div class="new-item">
+                <form action="/importar" method="POST"">
+                    <input type="hidden" name="importar">
+                    <button type="submit" class="new-item-btn">
+                        <i class="fa-solid fa-plus"></i>
+                        &nbspImportar
                     </button>
                 </form>
             </div>
@@ -52,6 +61,9 @@
                                     <span class="tag-<?= $produto['categoria_id'] ?>"><?= $produto['categoria_nome'] ?></span>
                                 </div>
                                 <p class="item-name"><?= $produto['nome'] ?></p>
+                            </div>
+                            <div class="item-img">
+                                <img src="<?= $produto['imagem'] ?>" alt="imagem<?= $produto['nome'] ?>" style="width: 60px; height: 60px;">
                             </div>
                             <div class="item-right">
                                 <p>SKU: <?= $produto['sku'] ?></p>

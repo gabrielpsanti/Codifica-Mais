@@ -21,7 +21,7 @@
             </div>
             <div class="formulario">
                 <div class="container-form">
-                    <form action="/produtos/atualizar?id=<?= $produto['id'] ?>" method="POST">
+                    <form action="/produtos/atualizar?id=<?= $produto['id'] ?>" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="id" value="<?= $produto['id'] ?>">
 
                         <div class="cadastro-name">
@@ -70,7 +70,16 @@
                                 </select>
                             </section>
                             
+                        </div>
+
+                        <div class="enviar-img">
+
+                            <label for="imagem">Imagem:</label><br>
+                            <img src="<?= $produto['imagem'] ?>" alt="imagem<?= $produto['nome'] ?>" style="width: 60px; height: 60px;">
+                            <input type="file" name="imagem" accept="image/png, image/jpg, image/jpeg" id="imagem" placeholder="Envie uma imagem">
+                            
                             <button class="edit-btn" type="submit" name="atualizar">Atualizar</button>
+
                         </div>
                     </form>
                 </div>

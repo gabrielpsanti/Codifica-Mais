@@ -6,8 +6,10 @@
 
 
     use App\Controllers\ProdutoController;
+    use App\Controllers\ImportController;
 
     $instance = new ProdutoController(DB_HOST, DB_NAME, DB_USER, DB_PASS);
+    $importController = new ImportController(DB_HOST, DB_NAME, DB_USER, DB_PASS);
 
     $page = $_SERVER['PATH_INFO'];
 
@@ -33,6 +35,14 @@
 
     if ($page == '/produtos/deletar'){
         $instance->deletar($_GET['id']);
+    }
+
+    if ($page == '/importar'){
+        $importController->index();
+    }
+
+    if ($page == '/saveimport'){
+        $importController->saveImport($_FILES);
     }
 
     else {

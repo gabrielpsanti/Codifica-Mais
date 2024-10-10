@@ -74,7 +74,7 @@
 
                         <div class="enviar-img">
 
-                            <label for="imagem">imagem</label>
+                            <label for="imagem">Imagem:</label>
                             <input type="file" name="imagem" accept="image/png, image/jpg, image/jpeg" id="imagem" placeholder="Envie uma imagem">
                             
                             <button class="edit-btn" type="submit" name="salvar">Cadastrar</button>
