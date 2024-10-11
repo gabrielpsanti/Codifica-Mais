@@ -43,16 +43,15 @@ class ImportController
 
         try {
             while (($data = fgetcsv($arquivo, 1000, ",")) !== FALSE) {
-
                 $stmt = $this->pdo->prepare($sql);
-                $stmt->bindValue(':nome', $data[0]);
-                $stmt->bindValue(':sku', $data[1]);
-                $stmt->bindValue(':unidade_medida_id', $data[2]);
-                $stmt->bindValue(':valor', $data[3]);
-                $stmt->bindValue(':quantidade', $data[4]);
-                $stmt->bindValue(':categoria_id', $data[5]);
+                $stmt->bindParam(':nome', $data[0]);
+                $stmt->bindParam(':sku', $data[1]);
+                $stmt->bindParam(':unidade_medida_id', $data[2]);
+                $stmt->bindParam(':valor', $data[3]);
+                $stmt->bindParam(':quantidade', $data[4]);
+                $stmt->bindParam(':categoria_id', $data[5]);
                 $stmt->bindValue(':imagem', "/Storage/padrao.png");
-                dd($stmt->execute());
+                $stmt->execute();
             }
 
             fclose($arquivo);

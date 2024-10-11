@@ -271,6 +271,7 @@ class ProdutoController
 
     public function validarTamanhoImagem($files){
         if ($files['imagem']['size'] > 2100000 || $files['imagem']['type'] != 'image/png' || $files['imagem']['type'] != 'image/jpeg' || $files['imagem']['type'] != 'image/jpg'){
+            dd($files);
             return true;
         } else {
             return false;
